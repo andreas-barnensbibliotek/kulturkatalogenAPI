@@ -120,11 +120,14 @@
   <ItemGroup>
     <Content Include="info\testInfo.vb" />
     <Compile Include="App_Start\WebApiConfig.vb" />
+    <Compile Include="Controllers\LogController.vb" />
+    <Compile Include="info\arrangemangInfo.vb" />
     <Compile Include="info\funkarInfo.vb" />
     <Compile Include="Controllers\testController.vb" />
     <Compile Include="Global.asax.vb">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="info\logInfo.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
