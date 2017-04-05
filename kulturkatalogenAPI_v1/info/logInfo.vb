@@ -1,6 +1,10 @@
-﻿Public Class logInfo
+﻿Imports System.Runtime.Serialization
+Imports System.ServiceModel
 
-    Private _logid As Integer
+
+Public Class logInfoapi
+
+
     Private _logtyp As Integer
     Private _datum As Date
     Private _arrid As Integer
@@ -15,6 +19,11 @@
         _status = ""
         _arrangemang = New List(Of arrangemangInfo)
     End Sub
+
+
+    Private _logid As Integer
+
+    <DataMember(Name:="testarlogid")>
     Public Property logid() As Integer
         Get
             Return _logid
@@ -24,7 +33,7 @@
         End Set
     End Property
 
-
+    <DataMember(Name:="logtyp")>
     Public Property logtyp() As Integer
         Get
             Return _logtyp
@@ -34,6 +43,7 @@
         End Set
     End Property
 
+    <DataMember(Name:="datum")>
     Public Property Datum() As Date
         Get
             Return _datum
@@ -43,6 +53,7 @@
         End Set
     End Property
 
+    <DataMember(Name:="arrid")>
     Public Property Arrid() As Integer
         Get
             Return _arrid
@@ -52,6 +63,7 @@
         End Set
     End Property
 
+    <DataMember(Name:="status")>
     Public Property Status() As String
         Get
             Return _status
@@ -61,12 +73,5 @@
         End Set
     End Property
 
-    Public Property LogArrangemang() As List(Of arrangemangInfo)
-        Get
-            Return _arrangemang
-        End Get
-        Set(ByVal value As List(Of arrangemangInfo))
-            _arrangemang = value
-        End Set
-    End Property
+
 End Class

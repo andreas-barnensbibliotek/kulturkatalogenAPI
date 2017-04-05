@@ -27,53 +27,17 @@ Public Class WebApiApplication
         'GlobalConfiguration.Configuration.Formatters.XmlFormatter.MediaTypeMappings.Add(
         '    New System.Net.Http.Formatting.QueryStringMapping("type", "xml", New System.Net.Http.Headers.MediaTypeHeaderValue("application/xml")))
 
-        RouteTable.Routes.MapHttpRoute("Api_v1.0",
-                                      "Api_v1/{controller}/devkey/{devkey}",
-                                      defaults:=New With {.value = System.Web.Http.RouteParameter.Optional})
-        RouteTable.Routes.MapHttpRoute("Api_v1.0_devkey",
-                                      "Api_v1/{controller}/{value}/devkey/{devkey}",
-                                      defaults:=New With {.value = System.Web.Http.RouteParameter.Optional, .devkey = System.Web.Http.RouteParameter.Optional})
-        RouteTable.Routes.MapHttpRoute("Api_v1.0_Type_devkey",
-                                      "Api_v1/{controller}/{typ}/{value}/devkey/{devkey}",
-                                      defaults:=New With {.typ = System.Web.Http.RouteParameter.Optional, .value = System.Web.Http.RouteParameter.Optional, .devkey = System.Web.Http.RouteParameter.Optional})
-        RouteTable.Routes.MapHttpRoute("Api_v1.0_Type_devkey_uservotes",
-                                      "Api_v1/{controller}/{typ}/{value}/{userid}/devkey/{devkey}",
-                                      defaults:=New With {.typ = System.Web.Http.RouteParameter.Optional, .value = System.Web.Http.RouteParameter.Optional, .userid = System.Web.Http.RouteParameter.Optional, .devkey = System.Web.Http.RouteParameter.Optional})
-        RouteTable.Routes.MapHttpRoute("Api_v1.0_Type_devkey_add",
-                                     "Api_v1/{controller}/{typ}/devkey/{devkey}/uid/{uid}/title/{title}/review/{review}/age/{age}/category/{category}",
-                                     defaults:=New With {.typ = System.Web.Http.RouteParameter.Optional,
-                                                         .devkey = System.Web.Http.RouteParameter.Optional,
-                                                         .uid = System.Web.Http.RouteParameter.Optional,
-                                                         .title = System.Web.Http.RouteParameter.Optional,
-                                                         .review = System.Web.Http.RouteParameter.Optional,
-                                                         .age = System.Web.Http.RouteParameter.Optional,
-                                                        .category = System.Web.Http.RouteParameter.Optional
-                                                        })
-        RouteTable.Routes.MapHttpRoute("Api_v1.0_Type_devkey_addhighscore",
-                                     "Api_v1/{controller}/{typ}/devkey/{devkey}/QuizID/{QuizID}/Userid/{Userid}/ModuleID/{ModuleID}/AntalRatt/{AntalRatt}/Datum/{Datum}/Tid/{Tid}",
-                                     defaults:=New With {.typ = System.Web.Http.RouteParameter.Optional,
-                                                        .devkey = System.Web.Http.RouteParameter.Optional,
-                                                         .QuizID = System.Web.Http.RouteParameter.Optional,
-                                                         .Userid = System.Web.Http.RouteParameter.Optional,
-                                                        .ModuleID = System.Web.Http.RouteParameter.Optional,
-                                                        .AntalRatt = System.Web.Http.RouteParameter.Optional,
-                                                        .Datum = System.Web.Http.RouteParameter.Optional,
-                                                        .Tid = System.Web.Http.RouteParameter.Optional
-                                                        })
-
         RouteTable.Routes.MapHttpRoute("Api_v2.0",
                                       "Api_v2/{controller}_v2/",
                                       defaults:=New With {.value = System.Web.Http.RouteParameter.Optional})
 
         RouteTable.Routes.MapHttpRoute("Api_v2.0_Type_page_devkey",
-                                      "Api_v2/{controller}/{typ}/{value}/page/{page}/devkey/{devkey}",
-                                      defaults:=New With {.typ = System.Web.Http.RouteParameter.Optional, .value = System.Web.Http.RouteParameter.Optional, .page = System.Web.Http.RouteParameter.Optional, .devkey = System.Web.Http.RouteParameter.Optional})
-        RouteTable.Routes.MapHttpRoute("Api_v2.0_Type_devkey",
-                                      "Api_v2/{controller}/{typ}/{value}/devkey/{devkey}",
-                                      defaults:=New With {.typ = System.Web.Http.RouteParameter.Optional, .value = System.Web.Http.RouteParameter.Optional, .devkey = System.Web.Http.RouteParameter.Optional})
-        RouteTable.Routes.MapHttpRoute("Api_v2.0_Type_advancedSearch",
-                                   "Api_v2/{controller}/{typ}/page/{page}/devkey/{devkey}",
-                                      defaults:=New With {.typ = System.Web.Http.RouteParameter.Optional, .devkey = System.Web.Http.RouteParameter.Optional})
+                                      "Api_v2/{controller}/{cmd}/id/{id}/devkey/{devkey}",
+                                      defaults:=New With {.cmd = System.Web.Http.RouteParameter.Optional, .id = System.Web.Http.RouteParameter.Optional, .devkey = System.Web.Http.RouteParameter.Optional})
+
+        RouteTable.Routes.MapHttpRoute("Api_v2.0_Log_crud_devkey",
+                                      "Api_v2/{controller}/add/devkey/{devkey}",
+                                      defaults:=New With {.devkey = System.Web.Http.RouteParameter.Optional})
 
 
     End Sub
