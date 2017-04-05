@@ -31,10 +31,10 @@ Public Class LogHandlerModel
 
         Try
             tmpcrudobj.Arrid = crudlog.Arrid
-            tmpcrudobj.logtypid = crudlog.logtypid
+            tmpcrudobj.logtypid = crudlog.Logtypid
             tmpcrudobj.Statustypid = crudlog.Statustypid
             tmpcrudobj.Beskrivning = crudlog.Beskrivning
-            tmpcrudobj.ChangebyUserid = crudlog.logUserid
+            tmpcrudobj.ChangebyUserid = crudlog.LogUserid
 
             If _loghandlercontroller.addlogEvent(tmpcrudobj) Then
                 ret = True

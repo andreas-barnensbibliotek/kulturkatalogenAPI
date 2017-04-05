@@ -32,18 +32,17 @@ Public Class LogController
         Return returnobject ' "{'Booklist':[{'Bookid':11674,'title':'Pojken och hunden','isbn':'978-91-28-10697-9','Forfattare':[{'bookid':11674,'creatorid':5118,'namn':'Siw Widerberg','CreatorRollID':1}],'Illustrator':null,'Published':'2010','forlag':null,'Categories':[{'bookid':11674,'CategoryID':3,'catnamn':null}],'ExtraCategorier':[],'Amnen':null,'Serie':null,'Serienr':null,'Subtitle':null,'Easyread':0,'TotVotes':0,'BookReview':null,'BokomslagURL':'http://www.barnensbibliotek.com/Portals/0/bokomslag/978-91-28-10697-9.jpg','MediaUrler':null,'status':0}],'Totalbookitems':48,'requestedpage':'4','requestedpagecount':12,'Morepageleft':'ja','Totalpages':4,'Status':'ok'}"
     End Function
 
-    ' POST Api_v2/{controller}/add/devkey/{devkey} (create/add)
-    Public Function PostValue(devkey As String, <FromBody> Logobj As Object) As String
-
+    ' POST Api_v2/{controller}/add/devkey/{devkey} (create/add) OBS FromBody kan bara ta emot string, så mottagande class måste bara ha string propeties
+    Public Function PostValue(devkey As String, <FromBody> Logobj As crudloginfoapi) As String
 
         Dim infoobj As New crudLogInfo
-        infoobj.logUserid = Logobj.logUserid
-        infoobj.logtypid = Logobj.logtypid
-        infoobj.Arrid = Logobj.Arrid
-        infoobj.Statustypid = Logobj.Statustypid
+        infoobj.LogUserid = CInt(Logobj.LogUserid)
+        infoobj.Logtypid = CInt(Logobj.Logtypid)
+        infoobj.Arrid = CInt(Logobj.Arrid)
+        infoobj.Statustypid = CInt(Logobj.Statustypid)
         infoobj.Beskrivning = Logobj.Beskrivning
 
-        If (_loghandlerobj.addlog(Logobj)) Then
+        If (_loghandlerobj.addlog(infoobj)) Then
             Return "{sucess:true}"
         Else
             Return "{sucess:false}"

@@ -133,6 +133,7 @@
     <Compile Include="Controllers\LogController.vb" />
     <Compile Include="info\arrangemangInfo.vb" />
     <Compile Include="info\crudLogInfo.vb" />
+    <Compile Include="info\crudloginfoapi.vb" />
     <Compile Include="info\funkarInfo.vb" />
     <Compile Include="Controllers\testController.vb" />
     <Compile Include="Global.asax.vb">
@@ -144,6 +145,7 @@
     <Compile Include="info\jsonMainLogReturnInfo.vb" />
     <Compile Include="info\jsonreturnformatInfo.vb" />
     <Compile Include="info\logItemInfo.vb" />
+    <Compile Include="info\testarinfo.vb" />
     <Compile Include="Models\LogHandlerModel.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
