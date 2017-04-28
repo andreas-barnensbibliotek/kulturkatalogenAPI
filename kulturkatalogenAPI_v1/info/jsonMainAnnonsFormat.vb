@@ -1,4 +1,5 @@
-﻿Public Class jsonMainAnnonsFormat
+﻿Imports KulturkatalogenArrangemang
+Public Class jsonMainAnnonsFormat
     Private _ansokningstyp As String
     Public Property Ansokningstyp() As String
         Get
@@ -6,6 +7,16 @@
         End Get
         Set(ByVal value As String)
             _ansokningstyp = value
+        End Set
+    End Property
+
+    Private _ansokningarlista As jsonAnnonsListFormat
+    Public Property ansokningarlista() As jsonAnnonsListFormat
+        Get
+            Return _ansokningarlista
+        End Get
+        Set(ByVal value As jsonAnnonsListFormat)
+            _ansokningarlista = value
         End Set
     End Property
 

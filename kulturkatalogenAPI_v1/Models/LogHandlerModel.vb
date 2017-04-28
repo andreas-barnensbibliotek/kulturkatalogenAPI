@@ -76,7 +76,7 @@ Public Class LogHandlerModel
             Next
             retobj.Logcount = retitemlist.Count
             retobj.Logitemlist = retitemlist
-            retobj.Logstatus = ""
+            retobj.Logstatus = "Response ok"
 
         Catch ex As Exception
             retobj.Logcount = 0

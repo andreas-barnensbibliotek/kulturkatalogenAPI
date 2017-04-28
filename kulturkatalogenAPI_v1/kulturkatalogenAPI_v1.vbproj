@@ -45,6 +45,10 @@
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="KulturkatalogenArrangemang, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\KulturkatalogenArrangemang.dll</HintPath>
+    </Reference>
     <Reference Include="KulturkatalogenLog, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\KulturkatalogenLog.dll</HintPath>
@@ -130,6 +134,7 @@
   <ItemGroup>
     <Content Include="info\testInfo.vb" />
     <Compile Include="App_Start\WebApiConfig.vb" />
+    <Compile Include="Controllers\arrangemangController.vb" />
     <Compile Include="Controllers\LogController.vb" />
     <Compile Include="info\arrangemangInfo.vb" />
     <Compile Include="info\crudLogInfo.vb" />
@@ -140,12 +145,15 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="info\jsonAnnonsFormat.vb" />
+    <Compile Include="info\jsonAnnonsListFormat.vb" />
     <Compile Include="info\jsonLogReturnInfo.vb" />
     <Compile Include="info\jsonMainAnnonsFormat.vb" />
     <Compile Include="info\jsonMainLogReturnInfo.vb" />
     <Compile Include="info\jsonreturnformatInfo.vb" />
+    <Compile Include="info\jsonrootInfo.vb" />
     <Compile Include="info\logItemInfo.vb" />
     <Compile Include="info\testarinfo.vb" />
+    <Compile Include="Models\arrangemangHandler.vb" />
     <Compile Include="Models\LogHandlerModel.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">

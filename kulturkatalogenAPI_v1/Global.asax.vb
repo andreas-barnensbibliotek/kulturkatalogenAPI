@@ -35,6 +35,14 @@ Public Class WebApiApplication
                                       "Api_v2/{controller}/{cmd}/id/{id}/devkey/{devkey}",
                                       defaults:=New With {.cmd = System.Web.Http.RouteParameter.Optional, .id = System.Web.Http.RouteParameter.Optional, .devkey = System.Web.Http.RouteParameter.Optional})
 
+        RouteTable.Routes.MapHttpRoute("Api_v2.0_arrangemangslist_devkey",
+                                      "Api_v2/{controller}/{cmd}/uid/{uid}/typ/{arrstatus}/devkey/{devkey}",
+                                      defaults:=New With {.cmd = System.Web.Http.RouteParameter.Optional, .uid = System.Web.Http.RouteParameter.Optional, .arrstatus = System.Web.Http.RouteParameter.Optional, .devkey = System.Web.Http.RouteParameter.Optional})
+
+        RouteTable.Routes.MapHttpRoute("Api_v2.0_arrangemangssearch_devkey",
+                                      "Api_v2/{controller}/{cmd}/uid/{uid}/typ/{arrstatus}/val/{val}/devkey/{devkey}",
+                                      defaults:=New With {.cmd = System.Web.Http.RouteParameter.Optional, .uid = System.Web.Http.RouteParameter.Optional, .arrstatus = System.Web.Http.RouteParameter.Optional, .val = System.Web.Http.RouteParameter.Optional, .devkey = System.Web.Http.RouteParameter.Optional})
+
         RouteTable.Routes.MapHttpRoute("Api_v2.0_Log_crud_devkey",
                                       "Api_v2/{controller}/add/devkey/{devkey}",
                                       defaults:=New With {.devkey = System.Web.Http.RouteParameter.Optional})

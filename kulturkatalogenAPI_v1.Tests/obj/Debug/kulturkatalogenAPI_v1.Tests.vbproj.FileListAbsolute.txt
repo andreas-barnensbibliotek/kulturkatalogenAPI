@@ -36,4 +36,5 @@ D:\devprojekt\api\kulturkatalogenAPI_v1\kulturkatalogenAPI_v1.Tests\bin\Debug\We
 D:\devprojekt\api\kulturkatalogenAPI_v1\kulturkatalogenAPI_v1.Tests\bin\Debug\System.Web.Http.Cors.dll
 D:\devprojekt\api\kulturkatalogenAPI_v1\kulturkatalogenAPI_v1.Tests\bin\Debug\System.Web.Cors.dll
 D:\devprojekt\api\kulturkatalogenAPI_v1\kulturkatalogenAPI_v1.Tests\bin\Debug\WebApiContrib.Formatting.Jsonp.pdb
-D:\devprojekt\api\kulturkatalogenAPI_v1\kulturkatalogenAPI_v1.Tests\bin\Debug\System.Web.Http.Cors.xml
+D:\devprojekt\api\kulturkatalogenAPI_v1\kulturkatalogenAPI_v1.Tests\bin\Debug\KulturkatalogenLog.dll
+D:\devprojekt\api\kulturkatalogenAPI_v1\kulturkatalogenAPI_v1.Tests\bin\Debug\KulturkatalogenArrangemang.dll
