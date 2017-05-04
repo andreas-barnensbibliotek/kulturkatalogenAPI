@@ -32,3 +32,4 @@ D:\devprojekt\api\kulturkatalogenAPI_v1\kulturkatalogenAPI_v1\obj\Debug\kulturka
 D:\devprojekt\api\kulturkatalogenAPI_v1\kulturkatalogenAPI_v1\bin\WebApiContrib.Formatting.Jsonp.dll
 D:\devprojekt\api\kulturkatalogenAPI_v1\kulturkatalogenAPI_v1\bin\WebApiContrib.Formatting.Jsonp.pdb
 D:\devprojekt\api\kulturkatalogenAPI_v1\kulturkatalogenAPI_v1\bin\System.Web.Cors.dll
+D:\devprojekt\api\kulturkatalogenAPI_v1\kulturkatalogenAPI_v1\obj\Debug\kulturkatalogenAPI_v1.vbprojResolveAssemblyReference.cache

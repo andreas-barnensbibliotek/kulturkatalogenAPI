@@ -12,7 +12,7 @@ Public Class arrangemangHandler
         cmdtyp.CmdTyp = cmd
         cmdtyp.ArrStatusTyp = arrstatus
         cmdtyp.CmdtypUserid = usrid
-
+        cmdtyp.cmdValue = val
         tmpArrinfo = _arrObj.getArrangemang(cmdtyp)
 
         Return convertToArrangemangInfoApi(tmpArrinfo)

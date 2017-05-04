@@ -136,6 +136,8 @@
     <Compile Include="App_Start\WebApiConfig.vb" />
     <Compile Include="Controllers\arrangemangController.vb" />
     <Compile Include="Controllers\LogController.vb" />
+    <Compile Include="Controllers\searcharrController.vb" />
+    <Compile Include="Controllers\updatearrangemangController.vb" />
     <Compile Include="info\arrangemangInfo.vb" />
     <Compile Include="info\crudLogInfo.vb" />
     <Compile Include="info\crudloginfoapi.vb" />
@@ -155,6 +157,7 @@
     <Compile Include="info\testarinfo.vb" />
     <Compile Include="Models\arrangemangHandler.vb" />
     <Compile Include="Models\LogHandlerModel.vb" />
+    <Compile Include="Models\updateArrangemang.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
