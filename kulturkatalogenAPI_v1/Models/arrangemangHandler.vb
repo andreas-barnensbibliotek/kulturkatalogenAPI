@@ -13,6 +13,7 @@ Public Class arrangemangHandler
         cmdtyp.ArrStatusTyp = arrstatus
         cmdtyp.CmdtypUserid = usrid
         cmdtyp.cmdValue = val
+        cmdtyp.Visningsperiod = Date.Now.Year.ToString
         tmpArrinfo = _arrObj.getArrangemang(cmdtyp)
 
         Return convertToArrangemangInfoApi(tmpArrinfo)
