@@ -145,10 +145,10 @@
     <Compile Include="Controllers\searcharrController.vb" />
     <Compile Include="Controllers\updatearrangemangController.vb" />
     <Compile Include="Controllers\userController.vb" />
+    <Compile Include="info\apiAddArrangemangFormdataInfo.vb" />
     <Compile Include="info\apiNotifieringarInfo.vb" />
     <Compile Include="info\apinotifyItemInfo.vb" />
     <Compile Include="info\apiuserrollistInfo.vb" />
-    <Compile Include="info\arrangemangInfo.vb" />
     <Compile Include="info\crudLogInfo.vb" />
     <Compile Include="info\crudloginfoapi.vb" />
     <Compile Include="info\funkarInfo.vb" />
@@ -168,8 +168,11 @@
     <Compile Include="info\jsonuserInfo.vb" />
     <Compile Include="info\logItemInfo.vb" />
     <Compile Include="info\testarinfo.vb" />
+    <Compile Include="info\testarrlist.vb" />
     <Compile Include="info\userdataInfo.vb" />
+    <Compile Include="Models\addAndDelArrangemangHandler.vb" />
     <Compile Include="Models\arrangemangHandler.vb" />
+    <Compile Include="Models\convertArrtoJsonMainAnnonsFormat.vb" />
     <Compile Include="Models\LogHandlerModel.vb" />
     <Compile Include="Models\notifyHandler.vb" />
     <Compile Include="Models\updateArrangemang.vb" />

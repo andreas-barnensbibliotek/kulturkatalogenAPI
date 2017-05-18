@@ -18,4 +18,15 @@
             _testort = value
         End Set
     End Property
+
+
+    Private _lista As List(Of testarrlist)
+    Public Property lista() As List(Of testarrlist)
+        Get
+            Return _lista
+        End Get
+        Set(ByVal value As List(Of testarrlist))
+            _lista = value
+        End Set
+    End Property
 End Class

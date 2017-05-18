@@ -52,6 +52,14 @@ Public Class WebApiApplication
                                       "Api_v2/{controller}/add/devkey/{devkey}",
                                       defaults:=New With {.devkey = System.Web.Http.RouteParameter.Optional})
 
+        RouteTable.Routes.MapHttpRoute("Api_v2.0_Log_crudDel_devkey",
+                                      "Api_v2/{controller}/{userid}/del/{arrid}/devkey/{devkey}",
+                                      defaults:=New With {.userid = System.Web.Http.RouteParameter.Optional, .arrid = System.Web.Http.RouteParameter.Optional, .devkey = System.Web.Http.RouteParameter.Optional})
+
+        RouteTable.Routes.MapHttpRoute("Api_v2.0_Log_crudAddDel_devkey",
+                                      "Api_v2/{controller}/{cmd}/devkey/{devkey}",
+                                      defaults:=New With {.cmd = System.Web.Http.RouteParameter.Optional, .devkey = System.Web.Http.RouteParameter.Optional})
+
 
     End Sub
 End Class

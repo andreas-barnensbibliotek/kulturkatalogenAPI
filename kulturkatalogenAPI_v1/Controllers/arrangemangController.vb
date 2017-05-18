@@ -54,21 +54,42 @@ Public Class ArrangemangController
         Return ret ' "{'Booklist':[{'Bookid':11674,'title':'Pojken och hunden','isbn':'978-91-28-10697-9','Forfattare':[{'bookid':11674,'creatorid':5118,'namn':'Siw Widerberg','CreatorRollID':1}],'Illustrator':null,'Published':'2010','forlag':null,'Categories':[{'bookid':11674,'CategoryID':3,'catnamn':null}],'ExtraCategorier':[],'Amnen':null,'Serie':null,'Serienr':null,'Subtitle':null,'Easyread':0,'TotVotes':0,'BookReview':null,'BokomslagURL':'http://www.barnensbibliotek.com/Portals/0/bokomslag/978-91-28-10697-9.jpg','MediaUrler':null,'status':0}],'Totalbookitems':48,'requestedpage':'4','requestedpagecount':12,'Morepageleft':'ja','Totalpages':4,'Status':'ok'}"
     End Function
 
-    ' POST Api_v2/{controller}/add/devkey/{devkey} (create/add) OBS FromBody kan bara ta emot string, så mottagande class måste bara ha string propeties
-    Public Function PostValue(devkey As String, <FromBody> Logobj As crudloginfoapi) As String
 
-        Dim infoobj As New crudLogInfo
-        infoobj.LogUserid = CInt(Logobj.LogUserid)
-        infoobj.Logtypid = CInt(Logobj.Logtypid)
-        infoobj.Arrid = CInt(Logobj.Arrid)
-        infoobj.Statustypid = CInt(Logobj.Statustypid)
-        infoobj.Beskrivning = Logobj.Beskrivning
 
-        If (1 = 1) Then
-            Return "{sucess:true}"
-        Else
-            Return "{sucess:false}"
+    ' POST Api_v2/{controller}/{cmd}/devkey/{devkey} (create/add) OBS FromBody kan bara ta emot string, så mottagande class måste bara ha string propeties
+    Public Function PostValue(devkey As String, <FromBody> Logobj As KulturkatalogenArrangemang.arrangemangInfo) As jsonrootInfo
+        Dim returnobject As New jsonMainAnnonsFormat
+        Dim infoobj As New KulturkatalogenArrangemang.arrangemangInfo
+        Dim arrobj As New addAndDelArrangemangHandler
+
+        If devkeytester(devkey) Then
+            returnobject = arrobj.addArrangemang("add", Logobj)
+
         End If
+
+        Dim ret As New jsonrootInfo
+        ret.kk_aj_admin = returnobject
+        Return ret
+        'exempel på cmd= byStatus,bySearch
+
+    End Function
+
+
+    ' DELETE "Api_v2/{controller}/{userid}/del/{arrid}/devkey/{devkey}", (create/add) OBS FromBody kan bara ta emot string, så mottagande class måste bara ha string propeties
+    Public Function DeleteValue(arrid As String, userid As String, devkey As String) As jsonrootInfo
+        Dim returnobject As New jsonMainAnnonsFormat
+        Dim infoobj As New KulturkatalogenArrangemang.arrangemangInfo
+        Dim arrobj As New addAndDelArrangemangHandler
+
+        If devkeytester(devkey) Then
+            returnobject = arrobj.delArrangemang("del", arrid, userid)
+
+        End If
+
+        Dim ret As New jsonrootInfo
+        ret.kk_aj_admin = returnobject
+        Return ret
+        'exempel på cmd= byStatus,bySearch
 
     End Function
 

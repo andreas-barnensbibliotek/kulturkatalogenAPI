@@ -41,7 +41,3 @@ D:\devprojekt\api\kulturkatalogenAPI_v1\kulturkatalogenAPI_v1.Tests\bin\Debug\Ku
 D:\devprojekt\api\kulturkatalogenAPI_v1\kulturkatalogenAPI_v1.Tests\bin\Debug\kulturkatalogenUser.dll
 D:\devprojekt\api\kulturkatalogenAPI_v1\kulturkatalogenAPI_v1.Tests\bin\Debug\KulturkatalogenArrangemang.pdb
 D:\devprojekt\api\kulturkatalogenAPI_v1\kulturkatalogenAPI_v1.Tests\bin\Debug\KulturkatalogenArrangemang.xml
-D:\devprojekt\api\kulturkatalogenAPI_v1\kulturkatalogenAPI_v1.Tests\bin\Debug\KulturkatalogenLog.pdb
-D:\devprojekt\api\kulturkatalogenAPI_v1\kulturkatalogenAPI_v1.Tests\bin\Debug\KulturkatalogenLog.xml
-D:\devprojekt\api\kulturkatalogenAPI_v1\kulturkatalogenAPI_v1.Tests\bin\Debug\kulturkatalogenUser.pdb
-D:\devprojekt\api\kulturkatalogenAPI_v1\kulturkatalogenAPI_v1.Tests\bin\Debug\kulturkatalogenUser.xml

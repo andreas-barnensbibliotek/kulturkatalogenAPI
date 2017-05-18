@@ -1,5 +1,19 @@
 ﻿Imports KulturkatalogenArrangemang
 Public Class jsonMainAnnonsFormat
+
+    Public Sub New()
+        _ansokningarlista = New jsonAnnonsListFormat
+        _ansokningarlistacount = 0
+        _ansokningarlistacurrentpage = 0
+        _ansokningarlistatotalpages = 0
+        _ansokningstyp = 0
+        _approvedansokningarcount = 0
+        _deniedansokningarcount = 0
+        _nyaansokningarcount = 0
+        _status = ""
+
+    End Sub
+
     Private _ansokningstyp As String
     Public Property Ansokningstyp() As String
         Get
