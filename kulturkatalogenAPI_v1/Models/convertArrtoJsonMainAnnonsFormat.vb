@@ -28,8 +28,15 @@ Public Class convertArrtoJsonMainAnnonsFormat
                 tmpitm.ansokningstatus = itm.ArrangemangStatus
                 tmpitm.ansokningsubtitle = itm.UnderRubrik
                 tmpitm.ansokningtitle = itm.Rubrik
+                tmpitm.ansokningContent = itm.Innehall
                 tmpitm.ansokningtyp = itm.Arrangemangtyp
                 tmpitm.ansokningutovare = itm.Utovare
+                tmpitm.ansokningFaktalist = itm.Faktalist
+                tmpitm.ansokningMediaImage = itm.MainImage
+                tmpitm.ansokningMovieClip = itm.MediaClip
+                tmpitm.ansokningUsername = itm.Username
+                tmpitm.ansokningUtovardata = itm.UtovareData
+
                 retansoklista.ansokningar.Add(tmpitm)
             Next
             retMainObj.ansokningarlista = retansoklista

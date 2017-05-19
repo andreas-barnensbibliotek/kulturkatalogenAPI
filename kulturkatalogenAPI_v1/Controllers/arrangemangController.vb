@@ -11,6 +11,10 @@ Imports System.Web.Http.Cors
 ' Search anrop: (söker efter sökordet: "test")
 ' localhost:60485/Api_v2/arrangemang/bysearch/uid/2/typ/1/val/test/devkey/alf?type=json&callback=anrop
 ' kulturkatalog.kivdev.se:8080/Api_v2/arrangemang/bysearch/uid/2/typ/1/val/test/devkey/alf?type=json&callback=testar
+' Hämta arrangemang Detaljdata för ett arrangemang:
+' search anrop: command= details, userid= uid, typ = arrid,
+'/Api_v2/arrangemang/{command}/uid/{uid}/typ/{arrid}/devkey/alf?type=json&callback=testar
+'localhost:60485/Api_v2/arrangemang/details/uid/3/typ/3/devkey/alf?type=json&callback=testar
 '------------------------------------------------------------------------------------------------------
 <EnableCors("*", "*", "*")>
 Public Class ArrangemangController

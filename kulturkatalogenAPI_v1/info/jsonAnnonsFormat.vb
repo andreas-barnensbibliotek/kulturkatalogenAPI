@@ -1,4 +1,6 @@
-﻿Public Class jsonAnnonsFormat
+﻿Imports KulturkatalogenArrangemang
+
+Public Class jsonAnnonsFormat
 
     Private _ansokningid As Integer
     Private _ansokningdate As String
@@ -24,6 +26,11 @@
         _ansokningutovare = ""
         _ansokningurl = ""
         _ansokningbilaga = ""
+        _ansokningmediaimage = New mediaInfo
+        _ansokusername = ""
+        _ansokningmovieclip = New mediaInfo
+        _utovareid = 0
+        _utovardata = New utovareInfo
 
     End Sub
     Public Property ansokningid() As Integer
@@ -134,5 +141,73 @@
         End Set
     End Property
 
+    Private _faktalist As List(Of faktainfo)
+    Public Property ansokningFaktalist() As List(Of faktainfo)
+        Get
+            Return _faktalist
+        End Get
+        Set(ByVal value As List(Of faktainfo))
+            _faktalist = value
+        End Set
+    End Property
+
+    Private _innehall As String
+    Public Property ansokningContent() As String
+        Get
+            Return _innehall
+        End Get
+        Set(ByVal value As String)
+            _innehall = value
+        End Set
+    End Property
+
+    Private _ansokusername As String
+    Public Property ansokningUsername() As String
+        Get
+            Return _ansokusername
+        End Get
+        Set(ByVal value As String)
+            _ansokusername = value
+        End Set
+    End Property
+    Private _ansokningmediaimage As mediaInfo
+    Public Property ansokningMediaImage() As mediaInfo
+        Get
+            Return _ansokningmediaimage
+        End Get
+        Set(ByVal value As mediaInfo)
+            _ansokningmediaimage = value
+        End Set
+    End Property
+
+    Private _ansokningmovieclip As mediaInfo
+    Public Property ansokningMovieClip() As mediaInfo
+        Get
+            Return _ansokningmovieclip
+        End Get
+        Set(ByVal value As mediaInfo)
+            _ansokningmovieclip = value
+        End Set
+    End Property
+
+    Private _utovareid As Integer
+    Public Property ansokningUtovarid() As Integer
+        Get
+            Return _utovareid
+        End Get
+        Set(ByVal value As Integer)
+            _utovareid = value
+        End Set
+    End Property
+
+    Private _utovardata As utovareInfo
+    Public Property ansokningUtovardata() As utovareInfo
+        Get
+            Return _utovardata
+        End Get
+        Set(ByVal value As utovareInfo)
+            _utovardata = value
+        End Set
+    End Property
 
 End Class
