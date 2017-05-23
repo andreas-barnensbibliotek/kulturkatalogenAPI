@@ -1,8 +1,8 @@
-﻿Public Class apiAddArrangemangFormdataInfo
-    Private _userid As String
-    Private _logtypid As String
-    Private _arrid As String
-    Private _logstatusid As String
+﻿Public Class updateArrangemangInfo
+    Private _userid As Integer
+    Private _logtypid As Integer
+    Private _arrid As Integer
+    Private _logstatusid As Integer
     Private _logbeskrivning As String
     Private _cmdtyp As String
     Private _updVal As String
@@ -18,38 +18,38 @@
 
     End Sub
 
-    Public Property Userid() As String
+    Public Property Userid() As Integer
         Get
             Return _userid
         End Get
-        Set(ByVal value As String)
+        Set(ByVal value As Integer)
             _userid = value
         End Set
     End Property
 
-    Public Property Logtypid() As String
+    Public Property Logtypid() As Integer
         Get
             Return _logtypid
         End Get
-        Set(ByVal value As String)
+        Set(ByVal value As Integer)
             _logtypid = value
         End Set
     End Property
 
-    Public Property Arrid() As String
+    Public Property Arrid() As Integer
         Get
             Return _arrid
         End Get
-        Set(ByVal value As String)
+        Set(ByVal value As Integer)
             _arrid = value
         End Set
     End Property
 
-    Public Property Logstatusid() As String
+    Public Property Logstatusid() As Integer
         Get
             Return _logstatusid
         End Get
-        Set(ByVal value As String)
+        Set(ByVal value As Integer)
             _logstatusid = value
         End Set
     End Property
@@ -63,7 +63,6 @@
         End Set
     End Property
 
-
     Public Property CmdTyp() As String
         Get
             Return _cmdtyp
@@ -72,7 +71,6 @@
             _cmdtyp = value
         End Set
     End Property
-
 
     Public Property UpdValue() As String
         Get

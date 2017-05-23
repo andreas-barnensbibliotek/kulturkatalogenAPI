@@ -48,6 +48,21 @@ Public Class LogHandlerModel
     End Function
 
 
+    Public Function logger(arrid As Integer, logtypid As Integer, beskrivning As String, userid As Integer, statustyp As Integer) As Boolean
+        Dim log As New crudLogInfo
+        Try
+            log.Arrid = arrid
+            log.Logtypid = logtypid 'arrangemangevent
+            log.Statustypid = statustyp 'Event
+            log.Beskrivning = beskrivning
+            log.LogUserid = userid
+            addlog(log)
+            Return True
+        Catch ex As Exception
+            Return False
+        End Try
+    End Function
+
     '
 #End Region
     Private Function converttologinfoapi(listinfo As List(Of logInfo)) As jsonLogReturnInfo

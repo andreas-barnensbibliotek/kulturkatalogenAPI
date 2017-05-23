@@ -169,6 +169,9 @@
     <Compile Include="info\logItemInfo.vb" />
     <Compile Include="info\testarinfo.vb" />
     <Compile Include="info\testarrlist.vb" />
+    <Compile Include="info\apiUpdateArrangemangInfo.vb" />
+    <Compile Include="info\updateArrangemangInfo.vb" />
+    <Compile Include="info\updateMotiveringInfo.vb" />
     <Compile Include="info\userdataInfo.vb" />
     <Compile Include="Models\addAndDelArrangemangHandler.vb" />
     <Compile Include="Models\arrangemangHandler.vb" />

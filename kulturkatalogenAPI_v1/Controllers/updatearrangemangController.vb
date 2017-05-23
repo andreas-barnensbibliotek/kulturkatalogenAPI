@@ -40,6 +40,33 @@ Public Class updatearrangemangController
 
         Return ret ' "{'Booklist':[{'Bookid':11674,'title':'Pojken och hunden','isbn':'978-91-28-10697-9','Forfattare':[{'bookid':11674,'creatorid':5118,'namn':'Siw Widerberg','CreatorRollID':1}],'Illustrator':null,'Published':'2010','forlag':null,'Categories':[{'bookid':11674,'CategoryID':3,'catnamn':null}],'ExtraCategorier':[],'Amnen':null,'Serie':null,'Serienr':null,'Subtitle':null,'Easyread':0,'TotVotes':0,'BookReview':null,'BokomslagURL':'http://www.barnensbibliotek.com/Portals/0/bokomslag/978-91-28-10697-9.jpg','MediaUrler':null,'status':0}],'Totalbookitems':48,'requestedpage':'4','requestedpagecount':12,'Morepageleft':'ja','Totalpages':4,'Status':'ok'}"
     End Function
+
+    Public Function PostValue(cmd As String, devkey As String, <FromBody> Logobj As apiupdateArrangemangInfo) As jsonrootInfo
+
+        Dim arrdataoobj As New updateArrangemangInfo
+        arrdataoobj.Userid = CInt(Logobj.Userid) '1
+        arrdataoobj.Logtypid = 1 'arranganang
+        arrdataoobj.Arrid = CInt(Logobj.Arrid) '21
+        arrdataoobj.Logstatusid = CInt(Logobj.Logstatusid) '3 godkänd
+        arrdataoobj.Logbeskrivning = Logobj.Logbeskrivning ' nu godkänd
+        arrdataoobj.UpdValue = Logobj.UpdValue ' 2 godkänd
+        arrdataoobj.CmdTyp = "arrstat"
+
+        Dim returnobject As New jsonMainAnnonsFormat
+        Dim arrobj As New updateArrangemang
+
+        If devkeytester(devkey) Then
+            returnobject = arrobj.updateArrangemangParametrar(arrdataoobj)
+
+        End If
+
+        Dim ret As New jsonrootInfo
+        ret.kk_aj_admin = returnobject
+
+        Return ret
+
+    End Function
+
     Private Function devkeytester(devkey As String) As Boolean
         If devkey = "alf" Then
             Return True

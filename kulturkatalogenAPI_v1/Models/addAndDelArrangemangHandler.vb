@@ -6,6 +6,12 @@ Public Class addAndDelArrangemangHandler
     Private _Arrobj As New kk_aj_arr_MainController
     Private _converttoJson As New convertArrtoJsonMainAnnonsFormat
 
+    Enum statusevent
+        Ny = 1
+        Borttagen = 10
+        Andrad = 5
+    End Enum
+
     Public Function addArrangemang(cmd As String, arrobj As arrangemangInfo) As jsonMainAnnonsFormat
         Dim retobj As New jsonMainAnnonsFormat
         Dim tmpobj As New arrangemangcontainerInfo
@@ -21,7 +27,7 @@ Public Class addAndDelArrangemangHandler
         End If
 
 
-        Call logger(tmpobj.Arrangemanglist(0).Arrid, cmd, tmpobj.Status, 0)
+        _logobj.logger(tmpobj.Arrangemanglist(0).Arrid, 1, tmpobj.Status, 0, statusevent.Ny)
 
         Return _converttoJson.convertToArrangemangInfoApi(tmpobj)
 
@@ -43,19 +49,11 @@ Public Class addAndDelArrangemangHandler
             tmpobj = _Arrobj.DelArrangemang(cmdtyp)
         End If
 
-        Call logger(arrid, cmd, tmpobj.Status, userid)
+        _logobj.logger(arrid, 1, tmpobj.Status, userid, statusevent.Borttagen)
 
         Return _converttoJson.convertToArrangemangInfoApi(tmpobj)
 
     End Function
 
-    Private Sub logger(arrid As Integer, cmd As String, beskrivning As String, userid As Integer)
-        Dim log As New crudLogInfo
-        log.Arrid = arrid
-        log.Logtypid = 1 'arrangemangevent
-        log.Statustypid = 9 'Event
-        log.Beskrivning = "Arrangemang command: " & cmd & " arrparam: " & beskrivning
-        log.LogUserid = userid
-        _logobj.addlog(log)
-    End Sub
+
 End Class

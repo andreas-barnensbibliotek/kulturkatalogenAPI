@@ -1,4 +1,4 @@
-﻿Public Class apiAddArrangemangFormdataInfo
+﻿Public Class apiupdateArrangemangInfo
     Private _userid As String
     Private _logtypid As String
     Private _arrid As String
