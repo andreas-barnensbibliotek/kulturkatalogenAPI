@@ -2,14 +2,16 @@
 Imports System.Web.Http
     Imports System.Web.Http.Cors
 '------------------------------------------------------------------------------------------------------
-' apianrop exempel för att få ett arrangemangs loggar:
-' arrangemang har 2 anrop: bystatus, bysearch
+' apianrop exempel för att uppdatera ett arrangemangs parametrar:
+' arrangemang tre parametrar som kan ändras commando:   lookedat (kan bara "ja" el "nej"),
+'                                                       arrstat (1=ny,2=godkänd, 3=nekad, 4=arkiv),
+'                                                       pub (kan bara "ja" el "nej")
 ' userid måste skickas med: uid = userid
-' arrangemangtyp måste anges(ny,godkänd, nekad, arkiv) typ= arrtypid
-' vid sök måster val = sökord
-' localhost:60485/Api_v2/arrangemang/bystatus/uid/2/typ/4/devkey/alf?type=json&callback=testar
-' Search anrop: (söker efter sökordet: "test")
-' localhost:60485/Api_v2/arrangemang/bysearch/uid/2/typ/1/val/test/devkey/alf?type=json&callback=anrop
+' Värdet som skall ändras till måste anges= val/{val} (ny,godkänd, nekad, arkiv) typ= arrtypid
+' Api_v2/{controller}/{cmd}/id/{arrid}/uid/{userid}/val/{val}/devkey/{devkey}
+' localhost:60485/Api_v2/updatearrangemang/lookedat/id/2/uid/2/val/ja/devkey/alf?type=json&callback=testar
+' localhost:60485/Api_v2/updatearrangemang/arrstat/id/1/uid/2/val/2/devkey/alf?type=json&callback=testar
+' localhost:60485/Api_v2/updatearrangemang/pub/id/1/uid/2/val/ja/devkey/alf?type=json&callback=testar
 ' kulturkatalog.kivdev.se:8080/Api_v2/updatearrangemang/lookedat/id/2/uid/2/val/ja/devkey/alf?type=json&callback=testar
 '------------------------------------------------------------------------------------------------------
 <EnableCors("*", "*", "*")>

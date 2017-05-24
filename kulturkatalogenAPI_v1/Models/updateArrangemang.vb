@@ -8,6 +8,11 @@ Public Class updateArrangemang
         Borttagen = 10
         Andrad = 5
     End Enum
+    Enum Logtyp
+        Arrangemangevent = 1
+        Systemevent = 2
+        Searchevent = 3
+    End Enum
     Public Function updateArrangemangParametrar(cmd As String, arrid As Integer, usrid As Integer, val As String) As jsonMainAnnonsFormat
         Dim retobj As New jsonMainAnnonsFormat
         Dim tmpobj As New arrangemangcontainerInfo
@@ -30,7 +35,7 @@ Public Class updateArrangemang
         End If
 
         retobj.status = tmpobj.Status
-        _logobj.logger(arrid, cmd, tmpobj.Status, usrid, statusevent.Andrad)
+        _logobj.logger(arrid, Logtyp.Arrangemangevent, tmpobj.Status, usrid, statusevent.Andrad)
 
         Return retobj
 
