@@ -68,8 +68,10 @@ Public Class LogHandlerModel
     Private Function converttologinfoapi(listinfo As List(Of logInfo)) As jsonLogReturnInfo
         Dim retobj As New jsonLogReturnInfo
         Dim retitemlist As New List(Of logItemInfo)
+        Dim currentarrangemangstatus As String = ""
 
         Try
+            Dim status As Boolean = False
 
             For Each x In listinfo
                 Dim i As New logItemInfo
@@ -86,9 +88,14 @@ Public Class LogHandlerModel
                 i.ChangebyUsernamn = x.ChangebyUsernamn
                 i.Datum = x.Datum
                 i.Beskrivning = x.Beskrivning
+                If status = False Then
+                    currentarrangemangstatus = x.CurrentArrStatus
+                    status = True
+                End If
 
                 retitemlist.Add(i)
             Next
+            retobj.CurrentArrStatus = currentarrangemangstatus
             retobj.Logcount = retitemlist.Count
             retobj.Logitemlist = retitemlist
             retobj.Logstatus = "Response ok"

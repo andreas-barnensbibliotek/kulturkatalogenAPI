@@ -13,6 +13,7 @@
     Private _statustypid As Integer
     Private _statustyp As String
 
+
     Public Sub New()
         _logid = 0
         _logtypid = 0
@@ -26,6 +27,7 @@
         _statustypid = 0
         _statustyp = ""
         _beskrivning = ""
+
     End Sub
     Public Property logid() As Integer
         Get
@@ -135,4 +137,5 @@
             _beskrivning = value
         End Set
     End Property
+
 End Class

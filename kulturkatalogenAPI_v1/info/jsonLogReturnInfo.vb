@@ -28,4 +28,14 @@
             _logstatus = value
         End Set
     End Property
+
+    Private _currentArrStatus As String
+    Public Property CurrentArrStatus() As String
+        Get
+            Return _currentArrStatus
+        End Get
+        Set(ByVal value As String)
+            _currentArrStatus = value
+        End Set
+    End Property
 End Class

@@ -66,7 +66,7 @@ Public Class updateArrangemang
         End If
 
         retobj.status = tmpobj.Status
-        _logobj.logger(arrobj.Arrid, arrobj.Logtypid, arrobj.Logbeskrivning, arrobj.Userid, statusevent.Andrad)
+        _logobj.logger(arrobj.Arrid, arrobj.Logtypid, arrobj.Logbeskrivning, arrobj.Userid, arrobj.Logstatusid)
 
         Return retobj
 
