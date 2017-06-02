@@ -37,3 +37,5 @@ D:\devprojekt\api\kulturkatalogenAPI_v1\kulturkatalogenAPI_v1\bin\Kulturkataloge
 D:\devprojekt\api\kulturkatalogenAPI_v1\kulturkatalogenAPI_v1\bin\KulturkatalogenArrangemang.xml
 D:\devprojekt\api\kulturkatalogenAPI_v1\kulturkatalogenAPI_v1\bin\KulturkatalogenLog.pdb
 D:\devprojekt\api\kulturkatalogenAPI_v1\kulturkatalogenAPI_v1\bin\KulturkatalogenLog.xml
+D:\devprojekt\api\kulturkatalogenAPI_v1\kulturkatalogenAPI_v1\bin\kulturkatalogenUser.pdb
+D:\devprojekt\api\kulturkatalogenAPI_v1\kulturkatalogenAPI_v1\bin\kulturkatalogenUser.xml

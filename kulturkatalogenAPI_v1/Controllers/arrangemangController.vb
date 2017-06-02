@@ -15,6 +15,8 @@ Imports System.Web.Http.Cors
 ' search anrop: command= details, userid= uid, typ = arrid,
 '/Api_v2/arrangemang/{command}/uid/{uid}/typ/{arrid}/devkey/alf?type=json&callback=testar
 'localhost:60485/Api_v2/arrangemang/details/uid/3/typ/3/devkey/alf?type=json&callback=testar
+'hämta latest arrangemang
+' localhost:60485/Api_v2/arrangemang/bylatest/uid/2/typ/0/val/top10/devkey/alf?type=json&callback=testar
 '------------------------------------------------------------------------------------------------------
 <EnableCors("*", "*", "*")>
 Public Class ArrangemangController
@@ -43,7 +45,6 @@ Public Class ArrangemangController
     End Function
 
     Public Function GetValues(cmd As String, uid As String, arrstatus As String, val As String, devkey As String) As jsonrootInfo
-
         Dim returnobject As New jsonMainAnnonsFormat
         Dim arrobj As New arrangemangHandler
 
