@@ -67,7 +67,14 @@ Public Class jsonAnnonsFormat
             _ansokningsubtitle = value
         End Set
     End Property
-
+    Public Property ansokningContent() As String
+        Get
+            Return _innehall
+        End Get
+        Set(ByVal value As String)
+            _innehall = value
+        End Set
+    End Property
     Public Property ansokningutovare() As String
         Get
             Return _ansokningutovare
@@ -152,14 +159,7 @@ Public Class jsonAnnonsFormat
     End Property
 
     Private _innehall As String
-    Public Property ansokningContent() As String
-        Get
-            Return _innehall
-        End Get
-        Set(ByVal value As String)
-            _innehall = value
-        End Set
-    End Property
+
 
     Private _ansokusername As String
     Public Property ansokningUsername() As String
