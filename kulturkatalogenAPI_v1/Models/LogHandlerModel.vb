@@ -13,8 +13,11 @@ Public Class LogHandlerModel
             Case "bystatus"
                 tmploginfo.Statustypid = param
             Case "byuser"
+
             Case "byutovare"
             Case "bylogid"
+            Case "all"
+                tmploginfo.Statustypid = 0
         End Select
 
         Dim test As List(Of logInfo) = _loghandlercontroller.getlogEvent(cmd, tmploginfo)
@@ -81,6 +84,7 @@ Public Class LogHandlerModel
                 i.logtyp = x.logtyp
                 i.Arrid = x.Arrid
                 i.Arrrubrik = x.Arrrubrik
+                i.ArrutovareID = x.ArrutovareID
                 i.Arrutovare = x.Arrutovare
                 i.Statustypid = x.Statustypid
                 i.Statustyp = x.Statustyp

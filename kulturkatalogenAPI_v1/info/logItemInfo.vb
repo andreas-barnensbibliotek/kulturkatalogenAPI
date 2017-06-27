@@ -6,6 +6,7 @@
     Private _datum As Date
     Private _arrid As Integer
     Private _arrrubrik As String
+    Private _arrutovareID As Integer
     Private _arrutovare As String
     Private _beskrivning As String
     Private _changebyuserid As Integer
@@ -21,6 +22,7 @@
         _datum = Date.Now
         _arrid = 0
         _arrrubrik = ""
+        _arrutovareID = 0
         _arrutovare = ""
         _changebyuserid = 0
         _ChangebyUsernamn = ""
@@ -74,7 +76,14 @@
             _arrrubrik = value
         End Set
     End Property
-
+    Public Property ArrutovareID() As Integer
+        Get
+            Return _arrutovareID
+        End Get
+        Set(ByVal value As Integer)
+            _arrutovareID = value
+        End Set
+    End Property
     Public Property Arrutovare() As String
         Get
             Return _arrutovare
