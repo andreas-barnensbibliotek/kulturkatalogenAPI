@@ -26,9 +26,9 @@ Public Class jsonAnnonsFormat
         _ansokningutovare = ""
         _ansokningurl = ""
         _ansokningbilaga = ""
-        _ansokningmediaimage = New mediaInfo
+        '_ansokningmediaimage = New mediaInfo
         _ansokusername = ""
-        _ansokningmovieclip = New mediaInfo
+        '_ansokningmovieclip = New mediaInfo
         _utovareid = 0
         _utovardata = New utovareInfo
 
@@ -67,6 +67,8 @@ Public Class jsonAnnonsFormat
             _ansokningsubtitle = value
         End Set
     End Property
+
+    Private _innehall As String
     Public Property ansokningContent() As String
         Get
             Return _innehall
@@ -158,7 +160,17 @@ Public Class jsonAnnonsFormat
         End Set
     End Property
 
-    Private _innehall As String
+
+    Private _medialist As List(Of mediaInfo)
+    Public Property ansokningMedialist() As List(Of mediaInfo)
+        Get
+            Return _medialist
+        End Get
+        Set(ByVal value As List(Of mediaInfo))
+            _medialist = value
+        End Set
+    End Property
+
 
 
     Private _ansokusername As String
@@ -170,25 +182,25 @@ Public Class jsonAnnonsFormat
             _ansokusername = value
         End Set
     End Property
-    Private _ansokningmediaimage As mediaInfo
-    Public Property ansokningMediaImage() As mediaInfo
-        Get
-            Return _ansokningmediaimage
-        End Get
-        Set(ByVal value As mediaInfo)
-            _ansokningmediaimage = value
-        End Set
-    End Property
+    'Private _ansokningmediaimage As mediaInfo
+    'Public Property ansokningMediaImage() As mediaInfo
+    '    Get
+    '        Return _ansokningmediaimage
+    '    End Get
+    '    Set(ByVal value As mediaInfo)
+    '        _ansokningmediaimage = value
+    '    End Set
+    'End Property
 
-    Private _ansokningmovieclip As mediaInfo
-    Public Property ansokningMovieClip() As mediaInfo
-        Get
-            Return _ansokningmovieclip
-        End Get
-        Set(ByVal value As mediaInfo)
-            _ansokningmovieclip = value
-        End Set
-    End Property
+    'Private _ansokningmovieclip As mediaInfo
+    'Public Property ansokningMovieClip() As mediaInfo
+    '    Get
+    '        Return _ansokningmovieclip
+    '    End Get
+    '    Set(ByVal value As mediaInfo)
+    '        _ansokningmovieclip = value
+    '    End Set
+    'End Property
 
     Private _utovareid As Integer
     Public Property ansokningUtovarid() As Integer

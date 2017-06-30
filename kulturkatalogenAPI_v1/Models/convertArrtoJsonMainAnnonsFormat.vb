@@ -31,9 +31,10 @@ Public Class convertArrtoJsonMainAnnonsFormat
                 tmpitm.ansokningContent = itm.Innehall
                 tmpitm.ansokningtyp = itm.Arrangemangtyp
                 tmpitm.ansokningutovare = itm.Utovare
+                tmpitm.ansokningMedialist = itm.MediaList
                 tmpitm.ansokningFaktalist = itm.Faktalist
-                tmpitm.ansokningMediaImage = itm.MainImage
-                tmpitm.ansokningMovieClip = itm.MediaClip
+                'tmpitm.ansokningMediaImage = itm.MainImage
+                'tmpitm.ansokningMovieClip = itm.MediaClip
                 tmpitm.ansokningUsername = itm.Username
                 tmpitm.ansokningUtovardata = itm.UtovareData
 
