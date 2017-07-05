@@ -15,17 +15,17 @@ Public Class testController
 
         Dim testar As utovarelistInfo = New utovarelistInfo
         testar.utovarid = "1"
-        testar.Utovare = "nisse"
+        testar.utovare = "nisse"
         ret.Add(testar)
         Dim testar2 As utovarelistInfo = New utovarelistInfo
         testar2.utovarid = "2"
-        testar2.Utovare = "Lisa"
+        testar2.utovare = "Lisa"
         ret.Add(testar2)
 
         Dim testar3 As utovarelistInfo = New utovarelistInfo
         testar3.utovarid = "3"
-        testar3.Utovare = "Klara"
-        testar3.Selected = "ja"
+        testar3.utovare = "Klara"
+        testar3.selected = "ja"
         ret.Add(testar3)
 
         Return ret

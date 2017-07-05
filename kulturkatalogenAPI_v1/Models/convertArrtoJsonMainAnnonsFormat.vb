@@ -26,6 +26,7 @@ Public Class convertArrtoJsonMainAnnonsFormat
                 tmpitm.ansokninglast = itm.LookedAt
                 tmpitm.ansokningpublicerad = itm.Publicerad
                 tmpitm.ansokningstatus = itm.ArrangemangStatus
+                tmpitm.ansokningcontentid = itm.ContentID
                 tmpitm.ansokningsubtitle = itm.UnderRubrik
                 tmpitm.ansokningtitle = itm.Rubrik
                 tmpitm.ansokningContent = itm.Innehall

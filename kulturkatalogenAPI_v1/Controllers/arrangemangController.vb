@@ -1,6 +1,7 @@
 ﻿Imports System.Net
 Imports System.Web.Http
 Imports System.Web.Http.Cors
+Imports KulturkatalogenArrangemang
 '------------------------------------------------------------------------------------------------------
 ' apianrop exempel för att få ett arrangemangs loggar:
 ' arrangemang har 2 anrop: bystatus, bysearch
@@ -62,7 +63,7 @@ Public Class ArrangemangController
 
 
     ' POST Api_v2/{controller}/{cmd}/devkey/{devkey} (create/add) OBS FromBody kan bara ta emot string, så mottagande class måste bara ha string propeties
-    Public Function PostValue(devkey As String, <FromBody> Logobj As KulturkatalogenArrangemang.arrangemangInfo) As jsonrootInfo
+    Public Function PostValue(devkey As String, <FromBody> Logobj As arrangemangInfo) As jsonrootInfo
         Dim returnobject As New jsonMainAnnonsFormat
         Dim infoobj As New KulturkatalogenArrangemang.arrangemangInfo
         Dim arrobj As New addAndDelArrangemangHandler

@@ -157,6 +157,7 @@
     <Compile Include="info\apiuserrollistInfo.vb" />
     <Compile Include="info\crudLogInfo.vb" />
     <Compile Include="info\crudloginfoapi.vb" />
+    <Compile Include="info\EditArrangemangDetailInfo.vb" />
     <Compile Include="info\funkarInfo.vb" />
     <Compile Include="Controllers\testController.vb" />
     <Compile Include="Global.asax.vb">

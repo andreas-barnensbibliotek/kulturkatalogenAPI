@@ -70,6 +70,9 @@ Public Class WebApiApplication
         RouteTable.Routes.MapHttpRoute("Api_v2.0_UPLOAD233",
                                      "Api/{controller}/t/{japp}/devkey/{devkey}",
                                      defaults:=New With {.japp = System.Web.Http.RouteParameter.Optional, .devkey = System.Web.Http.RouteParameter.Optional})
+        RouteTable.Routes.MapHttpRoute("Api_v3.0_Type_utovare_devkey",
+                                     "Api_v3/{controller}/{cmd}/val/{val}/devkey/{devkey}",
+                                     defaults:=New With {.cmd = System.Web.Http.RouteParameter.Optional, .val = System.Web.Http.RouteParameter.Optional, .devkey = System.Web.Http.RouteParameter.Optional})
 
     End Sub
 End Class

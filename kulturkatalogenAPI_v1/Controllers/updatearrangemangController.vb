@@ -45,6 +45,7 @@ Public Class updatearrangemangController
 
     Public Function PostValue(cmd As String, devkey As String, <FromBody> Logobj As apiupdateArrangemangInfo) As jsonrootInfo
 
+
         Dim arrdataoobj As New updateArrangemangInfo
         arrdataoobj.Userid = CInt(Logobj.Userid) '1
         arrdataoobj.Logtypid = 1 'arranganang
@@ -66,6 +67,25 @@ Public Class updatearrangemangController
         ret.kk_aj_admin = returnobject
 
         Return ret
+
+    End Function
+
+    Public Function PostValue(cmd As String, val As String, devkey As String, <FromBody> arrobj As EditArrangemangDetailInfo) As jsonrootInfo
+
+        Dim returnobject As New jsonMainAnnonsFormat
+        Dim infoobj As New EditArrangemangDetailInfo
+        Dim tmparrobj As New addAndDelArrangemangHandler
+
+        If devkeytester(devkey) Then
+            returnobject = tmparrobj.EditArrangemang(cmd, val, arrobj)
+
+        End If
+
+        Dim ret As New jsonrootInfo
+        ret.kk_aj_admin = returnobject
+        Return ret
+        'exempel på cmd= byStatus,bySearch
+
 
     End Function
 

@@ -4,6 +4,7 @@ Public Class jsonAnnonsFormat
 
     Private _ansokningid As Integer
     Private _ansokningdate As String
+    Private _ansokningcontentid As String
     Private _ansokningtitle As String
     Private _ansokningsubtitle As String
     Private _ansokningpublicerad As String
@@ -16,6 +17,7 @@ Public Class jsonAnnonsFormat
     Public Sub New()
         _ansokningid = 0
         _ansokningdate = ""
+        _ansokningcontentid = ""
         _ansokningtitle = ""
         _ansokningsubtitle = ""
         _ansokningpublicerad = "Nej"
@@ -48,6 +50,15 @@ Public Class jsonAnnonsFormat
         End Get
         Set(ByVal value As String)
             _ansokningdate = value
+        End Set
+    End Property
+
+    Public Property ansokningcontentid() As String
+        Get
+            Return _ansokningcontentid
+        End Get
+        Set(ByVal value As String)
+            _ansokningcontentid = value
         End Set
     End Property
     Public Property ansokningtitle() As String
