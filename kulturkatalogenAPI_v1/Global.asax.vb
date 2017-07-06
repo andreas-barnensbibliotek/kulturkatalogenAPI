@@ -73,6 +73,12 @@ Public Class WebApiApplication
         RouteTable.Routes.MapHttpRoute("Api_v3.0_Type_utovare_devkey",
                                      "Api_v3/{controller}/{cmd}/val/{val}/devkey/{devkey}",
                                      defaults:=New With {.cmd = System.Web.Http.RouteParameter.Optional, .val = System.Web.Http.RouteParameter.Optional, .devkey = System.Web.Http.RouteParameter.Optional})
+        RouteTable.Routes.MapHttpRoute("Api_v3.0_Type_utovarelistning_devkey",
+                                     "Api_v3/{controller}/{cmd}/user/{usr}/val/{val}/devkey/{devkey}",
+                                     defaults:=New With {.cmd = System.Web.Http.RouteParameter.Optional, .usr = System.Web.Http.RouteParameter.Optional, .val = System.Web.Http.RouteParameter.Optional, .devkey = System.Web.Http.RouteParameter.Optional})
+        RouteTable.Routes.MapHttpRoute("Api_v3.0_Type_utovaredelete_devkey",
+                                     "Api_v3/{controller}/{cmd}/user/{usr}/devkey/{devkey}",
+                                     defaults:=New With {.cmd = System.Web.Http.RouteParameter.Optional, .usr = System.Web.Http.RouteParameter.Optional, .devkey = System.Web.Http.RouteParameter.Optional})
 
     End Sub
 End Class

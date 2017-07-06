@@ -20,7 +20,15 @@ Public Class utovaredataInfo
             _utovarelist = value
         End Set
     End Property
-
+    Private _cmdresponse As String
+    Public Property cmdresponse() As String
+        Get
+            Return _cmdresponse
+        End Get
+        Set(ByVal value As String)
+            _cmdresponse = value
+        End Set
+    End Property
     Private _status As String
     Public Property Status() As String
         Get

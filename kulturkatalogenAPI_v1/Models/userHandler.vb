@@ -18,6 +18,21 @@ Public Class userHandler
         Return retobj
     End Function
 
+    Public Function chkUserRoll(userid As Integer, roll As Integer) As Boolean
+        Dim ret As Boolean = False
+        Dim retobj As New jsonuserInfo
+
+        Dim curuser As New userdataInfo
+        curuser = getuserdata(userid)
+        For Each itm In curuser.userrolls
+            If roll = itm.userrollid Then
+                ret = True
+                Exit For
+            End If
+        Next
+
+        Return ret
+    End Function
     Private Function getuserdata(userid As Integer) As userdataInfo
 
         Dim usrobj As New userdataInfo
