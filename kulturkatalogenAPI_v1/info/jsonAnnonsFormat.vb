@@ -13,6 +13,7 @@ Public Class jsonAnnonsFormat
     Private _ansokningtyp As String
     Private _ansokningkonstform As String
     Private _ansokningutovare As String
+    Private _utovareid As Integer
 
     Public Sub New()
         _ansokningid = 0
@@ -213,7 +214,7 @@ Public Class jsonAnnonsFormat
     '    End Set
     'End Property
 
-    Private _utovareid As Integer
+
     Public Property ansokningUtovarid() As Integer
         Get
             Return _utovareid

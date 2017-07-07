@@ -12,7 +12,6 @@ Public Class helperController
     ' GET Api_v2/{controller}/{cmd}/val{val}/devkey/{devkey}
     Public Function GetValues(cmd As String, val As String, devkey As String) As jsonUtovareReturnFormatInfo
 
-
         Dim returnobject As New jsonUtovareReturnFormatInfo
         Dim obj As New utovareHandler
         returnobject.kk_aj_admin = obj.getutovareautocompletelist(val)
