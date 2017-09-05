@@ -67,8 +67,9 @@ Public Class ArrangemangController
         Dim returnobject As New jsonMainAnnonsFormat
         Dim infoobj As New KulturkatalogenArrangemang.arrangemangInfo
         Dim arrobj As New addAndDelArrangemangHandler
-
+        Dim httpPostedFile = HttpContext.Current.Request.Files("UploadedImage")
         If devkeytester(devkey) Then
+
             returnobject = arrobj.addArrangemang("add", Logobj)
 
         End If

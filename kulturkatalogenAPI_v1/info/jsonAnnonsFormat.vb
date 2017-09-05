@@ -29,7 +29,7 @@ Public Class jsonAnnonsFormat
         _ansokningutovare = ""
         _ansokningurl = ""
         _ansokningbilaga = ""
-        '_ansokningmediaimage = New mediaInfo
+        _ansokningmediaimage = New mediaInfo
         _ansokusername = ""
         '_ansokningmovieclip = New mediaInfo
         _utovareid = 0
@@ -194,15 +194,15 @@ Public Class jsonAnnonsFormat
             _ansokusername = value
         End Set
     End Property
-    'Private _ansokningmediaimage As mediaInfo
-    'Public Property ansokningMediaImage() As mediaInfo
-    '    Get
-    '        Return _ansokningmediaimage
-    '    End Get
-    '    Set(ByVal value As mediaInfo)
-    '        _ansokningmediaimage = value
-    '    End Set
-    'End Property
+    Private _ansokningmediaimage As mediaInfo
+    Public Property ansokningMediaImage() As mediaInfo
+        Get
+            Return _ansokningmediaimage
+        End Get
+        Set(ByVal value As mediaInfo)
+            _ansokningmediaimage = value
+        End Set
+    End Property
 
     'Private _ansokningmovieclip As mediaInfo
     'Public Property ansokningMovieClip() As mediaInfo

@@ -1,4 +1,5 @@
 ﻿Imports KulturkatalogenArrangemang
+
 Public Class arrangemangHandler
 
     Private _arrObj As New kk_aj_arr_MainController

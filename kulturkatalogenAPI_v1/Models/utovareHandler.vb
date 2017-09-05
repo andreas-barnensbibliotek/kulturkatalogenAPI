@@ -36,6 +36,12 @@ Public Class utovareHandler
                     retobj.antalutovare = retobj.Utovarelist.Count
                     retobj.cmdresponse = "detail"
                     retobj.Status = "Utövaredetalj av utövare id:" & val
+
+                Case "searchForm"
+                    retobj.Utovarelist = _utovareobj.getutovarebyFormSearch(usr, val)
+                    retobj.antalutovare = retobj.Utovarelist.Count
+                    retobj.cmdresponse = "FormSearchdetail"
+                    retobj.Status = "Utövaredetalj av utövare id:" & val
             End Select
 
         Catch ex As Exception

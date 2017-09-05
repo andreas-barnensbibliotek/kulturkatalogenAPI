@@ -53,6 +53,11 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\KulturkatalogenLog.dll</HintPath>
     </Reference>
+    <Reference Include="KulturkatalogenMail, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\KulturkatalogenMail.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="kulturkatalogenUser, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\kulturkatalogenUser.dll</HintPath>
@@ -188,6 +193,7 @@
     <Compile Include="Models\arrangemangHandler.vb" />
     <Compile Include="Models\convertArrtoJsonMainAnnonsFormat.vb" />
     <Compile Include="Models\LogHandlerModel.vb" />
+    <Compile Include="Models\mailnewarrangemangHandler.vb" />
     <Compile Include="Models\notifyHandler.vb" />
     <Compile Include="Models\updateArrangemang.vb" />
     <Compile Include="Models\userHandler.vb" />

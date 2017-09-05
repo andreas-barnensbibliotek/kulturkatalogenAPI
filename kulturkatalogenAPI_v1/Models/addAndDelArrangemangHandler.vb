@@ -17,13 +17,15 @@ Public Class addAndDelArrangemangHandler
         Dim tmpobj As New arrangemangcontainerInfo
         Dim cmdtyp As New updatearrcommand
         Dim jsn As New jsonrootInfo
-
+        Dim mailstatus As String = ""
         'retobj.Ansokningstyp = "Add"
         tmpobj.Status = "Fel vid skapa nytt arrangemang"
 
         If Not String.IsNullOrEmpty(cmd) Then
             cmdtyp.CmdTyp = cmd
             tmpobj = _Arrobj.addArrangemang(cmdtyp, arrobj)
+            mailstatus = sendmail(arrobj)
+            tmpobj.Status &= " " & mailstatus
         End If
 
         'LOGGA ALLA EVENT
@@ -65,6 +67,8 @@ Public Class addAndDelArrangemangHandler
             Select Case cmd
                 Case "editcontent"
                     tmpobj = EditArrangemangContent(cmd, usrid, arrobj)
+                Case "editcontentImg"
+                    tmpobj = EditArrangemangContent(cmd, usrid, arrobj)
                 Case "editfakta"
                     tmpobj = EditArrangemangFakta(cmd, usrid, arrobj)
                 Case "editmedia"
@@ -88,7 +92,12 @@ Public Class addAndDelArrangemangHandler
 
         Return _converttoJson.convertToArrangemangInfoApi(tmpobj)
     End Function
+    Private Function sendmail(arrData As arrangemangInfo) As String
 
+        Dim obj As New mailnewarrangemangHandler
+        Return obj.newarrangemangMail(arrData)
+
+    End Function
 
 #Region "ADD"
 
@@ -116,6 +125,10 @@ Public Class addAndDelArrangemangHandler
         mediaObj.MediaUrl = arrobj.MediaUrl
         mediaObj.MediaTyp = arrobj.MediaTyp
         mediaObj.MediaVald = arrobj.MediaVald
+        mediaObj.mediaTitle = arrobj.mediaTitle
+        mediaObj.mediaBeskrivning = arrobj.mediaBeskrivning
+        mediaObj.mediaLink = arrobj.mediaLink
+        mediaObj.sortering = arrobj.sortering.ToString
 
         Return mainobj.addmediaToArrangemang(arrobj.arrid, mediaObj)
     End Function
@@ -140,6 +153,10 @@ Public Class addAndDelArrangemangHandler
         tmpobj.Rubrik = arrobj.rubrik
         tmpobj.UnderRubrik = arrobj.underrubrik
         tmpobj.Innehall = arrobj.innehall
+        tmpobj.MainImage.MediaUrl = arrobj.MediaUrl
+        tmpobj.MainImage.MediaAlt = arrobj.MediaAlt
+        tmpobj.MainImage.MediaFoto = arrobj.MediaFoto
+        tmpobj.MainImage.MediaSize = arrobj.MediaSize
 
         Return mainobj.editArrangemang(tmpobj)
 
@@ -168,6 +185,14 @@ Public Class addAndDelArrangemangHandler
         mediaObj.MediaUrl = arrobj.MediaUrl
         mediaObj.MediaTyp = arrobj.MediaTyp
         mediaObj.MediaVald = arrobj.MediaVald
+        mediaObj.mediaTitle = arrobj.mediaTitle
+        mediaObj.mediaBeskrivning = arrobj.mediaBeskrivning
+        mediaObj.mediaLink = arrobj.mediaLink
+        If String.IsNullOrEmpty(arrobj.sortering) Then
+            mediaObj.sortering = 0
+        Else
+            mediaObj.sortering = arrobj.sortering
+        End If
 
         Return mainobj.editMediaByMediaid(arrobj.arrid, mediaObj)
     End Function
