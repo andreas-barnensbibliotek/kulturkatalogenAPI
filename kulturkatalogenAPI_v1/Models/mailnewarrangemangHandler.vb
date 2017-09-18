@@ -10,18 +10,22 @@ Public Class mailnewarrangemangHandler
         Dim mailobj As New katalogenMailController
         Dim mailtolist As String = ""
 
-        userlist = userobj.getUsersbykonstform(arrmaildata.Konstform)
+        If arrmaildata.NewProperty = 9999 Then 'debug nummer
+            mailtolist = "theonealf@gmail.com"
+        Else
+            userlist = userobj.getUsersbykonstform(arrmaildata.Konstform)
 
-        Dim antal As Integer = userlist.Count
-        Dim i As Integer = 1
-        For Each x In userlist
-            mailtolist = x.userepost
-            If antal > i Then
-                mailtolist &= "; "
-            End If
+            Dim antal As Integer = userlist.Count
+            Dim i As Integer = 1
+            For Each x In userlist
+                mailtolist = x.userepost
+                If antal > i Then
+                    mailtolist &= "; "
+                End If
 
-            i += 1
-        Next
+                i += 1
+            Next
+        End If
 
         Return mailobj.arraangemangmail(convertinfoclasser(arrmaildata), mailtolist)
 
@@ -55,12 +59,12 @@ Public Class mailnewarrangemangHandler
         nymail.MainImage.MediaFoto = arrmaildata.MainImage.MediaFoto
         nymail.MainImage.MediaID = arrmaildata.MainImage.MediaID
         nymail.MainImage.mediaLink = arrmaildata.MainImage.mediaLink
-        nymail.MainImage.MediaSize = nymail.MainImage.MediaSize
-        nymail.MainImage.mediaTitle = nymail.MainImage.mediaTitle
-        nymail.MainImage.MediaTyp = nymail.MainImage.MediaTyp
-        nymail.MainImage.MediaUrl = nymail.MainImage.MediaUrl
-        nymail.MainImage.MediaVald = nymail.MainImage.MediaVald
-        nymail.MainImage.sortering = nymail.MainImage.sortering
+        nymail.MainImage.MediaSize = arrmaildata.MainImage.MediaSize
+        nymail.MainImage.mediaTitle = arrmaildata.MainImage.mediaTitle
+        nymail.MainImage.MediaTyp = arrmaildata.MainImage.MediaTyp
+        nymail.MainImage.MediaUrl = arrmaildata.MainImage.MediaUrl
+        nymail.MainImage.MediaVald = arrmaildata.MainImage.MediaVald
+        nymail.MainImage.sortering = arrmaildata.MainImage.sortering
 
         nymail.MediaClip.MediaAlt = arrmaildata.MediaClip.MediaAlt
         nymail.MediaClip.mediaBeskrivning = arrmaildata.MediaClip.mediaBeskrivning
@@ -68,12 +72,12 @@ Public Class mailnewarrangemangHandler
         nymail.MediaClip.MediaFoto = arrmaildata.MediaClip.MediaFoto
         nymail.MediaClip.MediaID = arrmaildata.MediaClip.MediaID
         nymail.MediaClip.mediaLink = arrmaildata.MediaClip.mediaLink
-        nymail.MediaClip.MediaSize = nymail.MediaClip.MediaSize
-        nymail.MediaClip.mediaTitle = nymail.MediaClip.mediaTitle
-        nymail.MediaClip.MediaTyp = nymail.MediaClip.MediaTyp
-        nymail.MediaClip.MediaUrl = nymail.MediaClip.MediaUrl
-        nymail.MediaClip.MediaVald = nymail.MediaClip.MediaVald
-        nymail.MediaClip.sortering = nymail.MediaClip.sortering
+        nymail.MediaClip.MediaSize = arrmaildata.MediaClip.MediaSize
+        nymail.MediaClip.mediaTitle = arrmaildata.MediaClip.mediaTitle
+        nymail.MediaClip.MediaTyp = arrmaildata.MediaClip.MediaTyp
+        nymail.MediaClip.MediaUrl = arrmaildata.MediaClip.MediaUrl
+        nymail.MediaClip.MediaVald = arrmaildata.MediaClip.MediaVald
+        nymail.MediaClip.sortering = arrmaildata.MediaClip.sortering
 
 
         For Each itm In arrmaildata.MediaList

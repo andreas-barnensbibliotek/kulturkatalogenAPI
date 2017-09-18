@@ -3,6 +3,7 @@ Imports System.Net
 Imports System.Net.Http
 Imports System.Web.Http
 Imports System.Web.Http.Cors
+Imports KulturkatalogenArrangemang
 
 <EnableCors("*", "*", "*")>
 Public Class testController
@@ -15,16 +16,24 @@ Public Class testController
 
         Dim testar As utovarelistInfo = New utovarelistInfo
         testar.utovarid = "1"
-        testar.utovare = "nisse"
+        testar.utovare = "testar att skicka mail"
         ret.Add(testar)
         Dim testar2 As utovarelistInfo = New utovarelistInfo
         testar2.utovarid = "2"
-        testar2.utovare = "Lisa"
+        testar2.utovare = "mail skickas till theonealf"
         ret.Add(testar2)
+
+        Dim arrData As New arrangemangInfo
+        arrData.Konstform = "1"
+        arrData.Rubrik = "testar att skicka mail"
+        arrData.Innehall = "massatext"
+        arrData.NewProperty = 9999
+
+        Dim obj As New mailnewarrangemangHandler
 
         Dim testar3 As utovarelistInfo = New utovarelistInfo
         testar3.utovarid = "3"
-        testar3.utovare = "Klara"
+        testar3.utovare = "Klara. Funkar det: " & obj.newarrangemangMail(arrData)
         testar3.selected = "ja"
         ret.Add(testar3)
 
