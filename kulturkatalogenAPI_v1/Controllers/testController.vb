@@ -27,7 +27,7 @@ Public Class testController
         arrData.Konstform = "1"
         arrData.Rubrik = "testar att skicka mail"
         arrData.Innehall = "massatext"
-        arrData.NewProperty = 9999
+        arrData.debug = "9999"
 
         Dim obj As New mailnewarrangemangHandler
 

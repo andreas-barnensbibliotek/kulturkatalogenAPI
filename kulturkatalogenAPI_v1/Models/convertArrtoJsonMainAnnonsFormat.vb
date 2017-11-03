@@ -22,6 +22,7 @@ Public Class convertArrtoJsonMainAnnonsFormat
                 Dim tmpitm As New jsonAnnonsFormat
                 tmpitm.ansokningdate = itm.Datum
                 tmpitm.ansokningid = itm.Arrid
+                tmpitm.ansokningkonstformid = itm.Konstformid
                 tmpitm.ansokningkonstform = itm.Konstform
                 tmpitm.ansokninglast = itm.LookedAt
                 tmpitm.ansokningpublicerad = itm.Publicerad
@@ -30,6 +31,7 @@ Public Class convertArrtoJsonMainAnnonsFormat
                 tmpitm.ansokningsubtitle = itm.UnderRubrik
                 tmpitm.ansokningtitle = itm.Rubrik
                 tmpitm.ansokningContent = itm.Innehall
+                tmpitm.ansokningtypid = itm.Arrangemangtypid
                 tmpitm.ansokningtyp = itm.Arrangemangtyp
                 tmpitm.ansokningutovare = itm.Utovare
                 tmpitm.ansokningUtovarid = itm.Utovarid
@@ -39,7 +41,7 @@ Public Class convertArrtoJsonMainAnnonsFormat
                 'tmpitm.ansokningMovieClip = itm.MediaClip
                 tmpitm.ansokningUsername = itm.Username
                 tmpitm.ansokningUtovardata = itm.UtovareData
-
+                tmpitm.ansokningAgespan = itm.Startyear & "- " & itm.Stoppyear
                 retansoklista.ansokningar.Add(tmpitm)
             Next
             retMainObj.ansokningarlista = retansoklista

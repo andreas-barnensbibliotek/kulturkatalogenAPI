@@ -10,6 +10,8 @@ Public Class jsonAnnonsFormat
     Private _ansokningpublicerad As String
     Private _ansokninglast As String
     Private _ansokningstatus As String
+    Private _ansokningtypid As String
+    Private _ansokningkonstformid As String
     Private _ansokningtyp As String
     Private _ansokningkonstform As String
     Private _ansokningutovare As String
@@ -24,6 +26,8 @@ Public Class jsonAnnonsFormat
         _ansokningpublicerad = "Nej"
         _ansokninglast = "Nej"
         _ansokningstatus = ""
+        _ansokningtypid = 0
+        _ansokningkonstformid = 0
         _ansokningtyp = ""
         _ansokningkonstform = ""
         _ansokningutovare = ""
@@ -144,6 +148,24 @@ Public Class jsonAnnonsFormat
         End Set
     End Property
 
+    Public Property ansokningtypid() As String
+        Get
+            Return _ansokningtypid
+        End Get
+        Set(ByVal value As String)
+            _ansokningtypid = value
+        End Set
+    End Property
+
+    Public Property ansokningkonstformid() As String
+        Get
+            Return _ansokningkonstformid
+        End Get
+        Set(ByVal value As String)
+            _ansokningkonstformid = value
+        End Set
+    End Property
+
     Public Property ansokningtyp() As String
         Get
             Return _ansokningtyp
@@ -234,4 +256,13 @@ Public Class jsonAnnonsFormat
         End Set
     End Property
 
+    Private _agesspan As String
+    Public Property ansokningAgespan() As String
+        Get
+            Return _agesspan
+        End Get
+        Set(ByVal value As String)
+            _agesspan = value
+        End Set
+    End Property
 End Class

@@ -90,7 +90,7 @@ Public Class LogHandlerModel
                 i.Statustyp = x.Statustyp
                 i.ChangebyUserid = x.ChangebyUserid
                 i.ChangebyUsernamn = x.ChangebyUsernamn
-                i.Datum = x.Datum
+                i.Datum = Format(x.Datum, "yyyy-MM-dd")
                 i.Beskrivning = x.Beskrivning
                 If status = False Then
                     currentarrangemangstatus = x.CurrentArrStatus

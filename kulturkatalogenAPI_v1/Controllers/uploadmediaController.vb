@@ -9,7 +9,10 @@ Public Class uploadmediaController
     Inherits ApiController
 
     '  api/<controller>/devkey/key
-
+    'local
+    Private _saveurl As String = "D:\wwwroot\dnndev_v902.me\Portals\0\kulturkatalogenArrImages\"
+    'server
+    'Private _saveurl As String = "D:\websites\kulturkatalogendnn\Portals\0\kulturkatalogenArrImages\"
     Public Function PostValue(devkey As String) As HttpResponseMessage
         Dim returnobject As New jsonMainAnnonsFormat
         Dim infoobj As New EditArrangemangDetailInfo
@@ -51,8 +54,8 @@ Public Class uploadmediaController
                         If HttpContext.Current.Request.Files.AllKeys.Any() Then
                             ' skickas med i postrequesten.. javascript: var data = new FormData();  Data.append("arrid", $('#arrid').val());
 
-                            Dim saveurl As String = "D:\wwwroot\dnndev_v902.me\Portals\0\kulturkatalogenArrImages\"
-                            'Dim saveurl As String = "D:\websites\kulturkatalogendnn\Portals\0\kulturkatalogenArrImages\"
+                            'Dim saveurl As String = "D:\wwwroot\dnndev_v902.me\Portals\0\kulturkatalogenArrImages\"
+                            Dim saveurl As String = _saveurl
                             Dim weburl As String = "/Portals/0/kulturkatalogenArrImages/"
                             ' Get the uploaded image from the Files collection
                             Dim httpPostedFile = HttpContext.Current.Request.Files("UploadedImage")
@@ -61,7 +64,8 @@ Public Class uploadmediaController
                                 ' Validate the uploaded image(optional)
                                 'Dim uploadedfileSrc As String = saveurl & Path.GetFileName(httpPostedFile.FileName)
                                 Dim uploadedfileSrc As String = saveurl & infoobj.arrid & "_" & httpPostedFile.FileName
-                                infoobj.MediaUrl = weburl & infoobj.arrid & "_" & httpPostedFile.FileName
+                                infoobj.MediaUrl = httpPostedFile.FileName
+                                'infoobj.MediaUrl = weburl & infoobj.arrid & "_" & httpPostedFile.FileName
                                 ' Get the complete file path
                                 'Dim fileSavePath = Path.Combine(HttpContext.Current.Server.MapPath("~/UploadedFiles"), httpPostedFile.FileName)
                                 'Dim fileSavePath = Path.Combine(saveurl, uploadedfileSrc)
@@ -107,7 +111,7 @@ Public Class uploadmediaController
 
         If HttpContext.Current.Request.Files.AllKeys.Any() Then
             ' skickas med i postrequesten.. javascript: var data = new FormData();  Data.append("arrid", $('#arrid').val());
-            Dim saveurl As String = "D:\wwwroot\dnndev_v902.me\Portals\0\kulturkatalogenArrImages\"
+            Dim saveurl As String = _saveurl
             'Dim saveurl As String = "D:\websites\kulturkatalogendnn\Portals\0\kulturkatalogenArrImages\"
             Dim weburl As String = "/Portals/0/kulturkatalogenArrImages/"
             ' Get the uploaded image from the Files collection

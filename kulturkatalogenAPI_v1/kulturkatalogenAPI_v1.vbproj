@@ -153,6 +153,7 @@
     <Compile Include="Controllers\LogController.vb" />
     <Compile Include="Controllers\notifyController.vb" />
     <Compile Include="Controllers\searcharrController.vb" />
+    <Compile Include="Controllers\searchController.vb" />
     <Compile Include="Controllers\updatearrangemangController.vb" />
     <Compile Include="Controllers\uploadmediaController.vb" />
     <Compile Include="Controllers\userController.vb" />
@@ -195,6 +196,7 @@
     <Compile Include="Models\LogHandlerModel.vb" />
     <Compile Include="Models\mailnewarrangemangHandler.vb" />
     <Compile Include="Models\notifyHandler.vb" />
+    <Compile Include="Models\searchHandler.vb" />
     <Compile Include="Models\updateArrangemang.vb" />
     <Compile Include="Models\userHandler.vb" />
     <Compile Include="Models\utovareHandler.vb" />

@@ -129,6 +129,8 @@ Public Class addAndDelArrangemangHandler
         mediaObj.mediaBeskrivning = arrobj.mediaBeskrivning
         mediaObj.mediaLink = arrobj.mediaLink
         mediaObj.sortering = arrobj.sortering.ToString
+        'mediaObj.mediaTitle = HttpContext.Current.Server.HtmlEncode(arrobj.mediaTitle)
+        'mediaObj.mediaBeskrivning = HttpContext.Current.Server.HtmlEncode(arrobj.mediaBeskrivning)
 
         Return mainobj.addmediaToArrangemang(arrobj.arrid, mediaObj)
     End Function

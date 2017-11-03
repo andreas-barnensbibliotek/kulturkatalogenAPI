@@ -10,7 +10,7 @@ Public Class mailnewarrangemangHandler
         Dim mailobj As New katalogenMailController
         Dim mailtolist As String = ""
 
-        If arrmaildata.NewProperty = 9999 Then 'debug nummer
+        If arrmaildata.debug = "9999" Then 'debug nummer
             mailtolist = "theonealf@gmail.com"
         Else
             userlist = userobj.getUsersbykonstform(arrmaildata.Konstform)

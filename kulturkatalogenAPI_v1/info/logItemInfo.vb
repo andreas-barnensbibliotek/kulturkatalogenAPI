@@ -3,7 +3,7 @@
     Private _logid As Integer
     Private _logtypid As Integer
     Private _logtyp As String
-    Private _datum As Date
+    Private _datum As String
     Private _arrid As Integer
     Private _arrrubrik As String
     Private _arrutovareID As Integer
@@ -129,11 +129,11 @@
         End Set
     End Property
 
-    Public Property Datum() As Date
+    Public Property Datum() As String
         Get
             Return _datum
         End Get
-        Set(ByVal value As Date)
+        Set(ByVal value As String)
             _datum = value
         End Set
     End Property
