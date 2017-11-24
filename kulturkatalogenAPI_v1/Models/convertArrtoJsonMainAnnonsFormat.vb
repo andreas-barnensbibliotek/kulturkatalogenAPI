@@ -41,6 +41,7 @@ Public Class convertArrtoJsonMainAnnonsFormat
                 'tmpitm.ansokningMovieClip = itm.MediaClip
                 tmpitm.ansokningUsername = itm.Username
                 tmpitm.ansokningUtovardata = itm.UtovareData
+                tmpitm.ansokningFilterfakta = itm.Filterfakta
                 tmpitm.ansokningAgespan = itm.Startyear & "- " & itm.Stoppyear
                 retansoklista.ansokningar.Add(tmpitm)
             Next

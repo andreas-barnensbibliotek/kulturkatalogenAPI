@@ -265,4 +265,15 @@ Public Class jsonAnnonsFormat
             _agesspan = value
         End Set
     End Property
+
+    Private _filterfakta As filterfaktaInfo
+    Public Property ansokningFilterfakta() As filterfaktaInfo
+        Get
+            Return _filterfakta
+        End Get
+        Set(ByVal value As filterfaktaInfo)
+            _filterfakta = value
+        End Set
+    End Property
+
 End Class
