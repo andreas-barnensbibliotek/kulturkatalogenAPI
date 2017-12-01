@@ -36,7 +36,7 @@ Public Class uploadmediaController
                     userid = HttpContext.Current.Request("userid")
                     infoobj.arrid = HttpContext.Current.Request("arrid")
                     infoobj.contentid = HttpContext.Current.Request("contentid")
-                    infoobj.innehall = HttpContext.Current.Request("innehall")
+                    infoobj.innehall = HttpContext.Current.Request("innehall").ToString()
                     infoobj.rubrik = HttpContext.Current.Request("rubrik")
                     infoobj.underrubrik = HttpContext.Current.Request("underrubrik")
                     infoobj.konstformid = HttpContext.Current.Request("konstformid")
