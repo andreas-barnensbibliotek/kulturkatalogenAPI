@@ -13,6 +13,13 @@ Imports System.Web.Http
 ' localhost:60485/Api_v2/updatearrangemang/arrstat/id/1/uid/2/val/2/devkey/alf?type=json&callback=testar
 ' localhost:60485/Api_v2/updatearrangemang/pub/id/1/uid/2/val/ja/devkey/alf?type=json&callback=testar
 ' kulturkatalog.kivdev.se:8080/Api_v2/updatearrangemang/lookedat/id/2/uid/2/val/ja/devkey/alf?type=json&callback=testar
+
+' BRYTPUNKTER
+' cmdtyp = pubhuvudbrytpunkt eller pubbrytpunkt, val= datum aktuell period/år 
+' Vid huvudbrytpunkt om år/period är 2017 arkiveras alla godkända och publicerade 2016 och publiceras alla godkända ej publicerade 2017)
+' Vid brytpunkt om år/period är 2017 publiceras alla godkända ej publicerade 2017
+' localhost:60485/Api_v2/updatearrangemang/pubhuvudbrytpunkt/id/1/uid/1/val/2019-12-01/devkey/alf
+' localhost:60485/Api_v2/updatearrangemang/pubbrytpunkt/id/1/uid/1/val/2019-12-01/devkey/alf
 '------------------------------------------------------------------------------------------------------
 <EnableCors("*", "*", "*")>
 Public Class updatearrangemangController
@@ -63,7 +70,7 @@ Public Class updatearrangemangController
 
         End If
 
-        Dim ret As New jsonrootInfo
+            Dim ret As New jsonrootInfo
         ret.kk_aj_admin = returnobject
 
         Return ret

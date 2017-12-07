@@ -159,6 +159,12 @@ Public Class addAndDelArrangemangHandler
         tmpobj.MainImage.MediaAlt = arrobj.MediaAlt
         tmpobj.MainImage.MediaFoto = arrobj.MediaFoto
         tmpobj.MainImage.MediaSize = arrobj.MediaSize
+        tmpobj.Konstform2 = arrobj.Konstform2
+        tmpobj.Konstform3 = arrobj.Konstform3
+        tmpobj.KontaktEfternamn = arrobj.KontaktEfternamn
+        tmpobj.Kontaktfornamn = arrobj.Kontaktfornamn
+        tmpobj.KontaktTelefon = arrobj.KontaktTelefon
+        tmpobj.KontaktEpost = arrobj.KontaktEpost
 
         Return mainobj.editArrangemang(tmpobj)
 

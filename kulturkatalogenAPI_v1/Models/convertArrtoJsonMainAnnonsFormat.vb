@@ -38,6 +38,12 @@ Public Class convertArrtoJsonMainAnnonsFormat
                 tmpitm.ansokningMedialist = itm.MediaList
                 tmpitm.ansokningFaktalist = itm.Faktalist
                 tmpitm.ansokningMediaImage = itm.MainImage
+                tmpitm.ansokningKonstform2 = itm.Konstform2
+                tmpitm.ansokningKonstform3 = itm.Konstform3
+                tmpitm.ansokningKontaktEfternamn = itm.KontaktEfternamn
+                tmpitm.ansokningKontaktEpost = itm.KontaktEpost
+                tmpitm.ansokningKontaktfornamn = itm.Kontaktfornamn
+                tmpitm.ansokningKontaktTelefon = itm.KontaktTelefon
                 'tmpitm.ansokningMovieClip = itm.MediaClip
                 tmpitm.ansokningUsername = itm.Username
                 tmpitm.ansokningUtovardata = itm.UtovareData

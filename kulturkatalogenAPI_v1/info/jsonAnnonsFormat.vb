@@ -16,6 +16,13 @@ Public Class jsonAnnonsFormat
     Private _ansokningkonstform As String
     Private _ansokningutovare As String
     Private _utovareid As Integer
+    Private _konstform2 As String
+    Private _konstform3 As String
+    Private _kontatkid As String
+    Private _kontaktFornamn As String
+    Private _kontaktEfternamn As String
+    Private _kontakttelefon As String
+    Private _kontaktEpost As String
 
     Public Sub New()
         _ansokningid = 0
@@ -38,7 +45,13 @@ Public Class jsonAnnonsFormat
         '_ansokningmovieclip = New mediaInfo
         _utovareid = 0
         _utovardata = New utovareInfo
-
+        _konstform2 = "0"
+        _konstform3 = "0"
+        _kontatkid = ""
+        _kontaktFornamn = ""
+        _kontaktEfternamn = ""
+        _kontakttelefon = ""
+        _kontaktEpost = ""
     End Sub
     Public Property ansokningid() As Integer
         Get
@@ -275,5 +288,62 @@ Public Class jsonAnnonsFormat
             _filterfakta = value
         End Set
     End Property
+    Public Property ansokningKonstform2() As String
+        Get
+            Return _konstform2
+        End Get
+        Set(ByVal value As String)
+            _konstform2 = value
+        End Set
+    End Property
 
+    Public Property ansokningKonstform3() As String
+        Get
+            Return _konstform3
+        End Get
+        Set(ByVal value As String)
+            _konstform3 = value
+        End Set
+    End Property
+    Public Property ansokningKontaktId() As String
+        Get
+            Return _kontatkid
+        End Get
+        Set(ByVal value As String)
+            _kontatkid = value
+        End Set
+    End Property
+
+    Public Property ansokningKontaktfornamn() As String
+        Get
+            Return _kontaktFornamn
+        End Get
+        Set(ByVal value As String)
+            _kontaktFornamn = value
+        End Set
+    End Property
+    Public Property ansokningKontaktEfternamn() As String
+        Get
+            Return _kontaktEfternamn
+        End Get
+        Set(ByVal value As String)
+            _kontaktEfternamn = value
+        End Set
+    End Property
+    Public Property ansokningKontaktTelefon() As String
+        Get
+            Return _kontakttelefon
+        End Get
+        Set(ByVal value As String)
+            _kontakttelefon = value
+        End Set
+    End Property
+    Public Property ansokningKontaktEpost() As String
+        Get
+            Return _kontaktEpost
+        End Get
+        Set(ByVal value As String)
+            _kontaktEpost = value
+        End Set
+    End Property
 End Class

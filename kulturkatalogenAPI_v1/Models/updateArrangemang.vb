@@ -3,9 +3,11 @@
 'anrop cmd: byt status(ny,godkänd,nekad, arkiverad):"arrstat", läst post: "lookedat", publicerad: "pub"
 Public Class updateArrangemang
     Private _logobj As New LogHandlerModel
+    Private _mailobj As New mailnewarrangemangHandler
     Enum statusevent
         Ny = 1
         Borttagen = 10
+        handelse = 9 'event
         Andrad = 5
     End Enum
     Enum Logtyp
@@ -68,8 +70,24 @@ Public Class updateArrangemang
         retobj.status = tmpobj.Status
         _logobj.logger(arrobj.Arrid, arrobj.Logtypid, arrobj.Logbeskrivning, arrobj.Userid, arrobj.Logstatusid)
 
+        If retobj.status.IndexOf("Fel") = -1 Then
+            sendmail(arrobj)
+        End If
+
         Return retobj
 
     End Function
 
+    Private Sub sendmail(arrobj As updateArrangemangInfo)
+
+        Dim arrangemangobj As New arrangemangInfo
+        Dim logbes As String = "AutoMail to: " & arrobj.Arrid & " status: "
+
+        arrangemangobj.Arrid = arrobj.Arrid
+
+        logbes &= _mailobj.SendMailHandler(arrobj.UpdValue, arrangemangobj, arrobj.Logbeskrivning)
+
+        _logobj.logger(arrobj.Arrid, Logtyp.Systemevent, logbes, arrobj.Userid, statusevent.handelse)
+
+    End Sub
 End Class

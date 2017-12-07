@@ -31,6 +31,39 @@ Public Class mailnewarrangemangHandler
 
     End Function
 
+    Public Function SendMailHandler(mailtyp As String, arrdata As KulturkatalogenArrangemang.arrangemangInfo, motivering As String) As String
+        Dim mailhandler As New katalogenMailController
+        Dim arrangemang As New KulturkatalogenArrangemang.arrangemangInfo
+        arrangemang = getmailBasecontent(arrdata.Arrid)
+        Dim mailobj As New mailInfo
+
+        With mailobj
+            .Utovarid = arrangemang.Utovarid
+            .utovaremailtoadress = arrangemang.KontaktEpost
+            .Konstformid = arrangemang.Konstformid
+            .MailTemplateId = mailtyp
+            .MailArrdata = convertinfoclasser(arrangemang)
+            .Motivering = motivering
+
+        End With
+        Return mailhandler.sendArrangemangsMail(mailobj)
+
+    End Function
+
+    Private Function getmailBasecontent(arrid As Integer) As KulturkatalogenArrangemang.arrangemangInfo
+        Dim tmparrobj As New KulturkatalogenArrangemang.arrangemangcontainerInfo
+        Dim _arrObj As New kk_aj_arr_MainController
+
+        Dim cmdtyp As New commandTypeInfo
+        cmdtyp.ArrID = arrid
+        cmdtyp.CmdTyp = "details"
+
+        tmparrobj = _arrObj.getArrangemang(cmdtyp)
+
+        Return tmparrobj.Arrangemanglist(0)
+
+
+    End Function
 
     Private Function convertinfoclasser(arrmaildata As KulturkatalogenArrangemang.arrangemangInfo) As KulturkatalogenMail.arrangemangInfo
         Dim nymail As New KulturkatalogenMail.arrangemangInfo

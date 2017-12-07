@@ -23,6 +23,13 @@
     Private _mediaBeskrivning As String
     Private _mediaLink As String
     Private _sortering As String
+    Private _konstform2 As String
+    Private _konstform3 As String
+    Private _kontatkid As String
+    Private _kontaktFornamn As String
+    Private _kontaktEfternamn As String
+    Private _kontakttelefon As String
+    Private _kontaktEpost As String
 
     Public Sub New()
         _arrid = ""
@@ -51,6 +58,15 @@
         _mediaBeskrivning = ""
         _mediaLink = ""
         _sortering = ""
+
+        _konstform2 = "0"
+        _konstform3 = "0"
+        _kontatkid = ""
+        _kontaktFornamn = ""
+        _kontaktEfternamn = ""
+        _kontakttelefon = ""
+        _kontaktEpost = ""
+
     End Sub
 
     Public Property arrid() As String
@@ -255,6 +271,69 @@
         End Get
         Set(ByVal value As String)
             _sortering = value
+        End Set
+    End Property
+
+    Public Property Konstform2() As String
+        Get
+            Return _konstform2
+        End Get
+        Set(ByVal value As String)
+            _konstform2 = value
+        End Set
+    End Property
+
+    Public Property Konstform3() As String
+        Get
+            Return _konstform3
+        End Get
+        Set(ByVal value As String)
+            _konstform3 = value
+        End Set
+    End Property
+
+    Public Property KontaktId() As String
+        Get
+            Return _kontatkid
+        End Get
+        Set(ByVal value As String)
+            _kontatkid = value
+        End Set
+    End Property
+
+    Public Property Kontaktfornamn() As String
+        Get
+            Return _kontaktFornamn
+        End Get
+        Set(ByVal value As String)
+            _kontaktFornamn = value
+        End Set
+    End Property
+
+    Public Property KontaktEfternamn() As String
+        Get
+            Return _kontaktEfternamn
+        End Get
+        Set(ByVal value As String)
+            _kontaktEfternamn = value
+        End Set
+    End Property
+
+    Public Property KontaktTelefon() As String
+        Get
+            Return _kontakttelefon
+        End Get
+        Set(ByVal value As String)
+            _kontakttelefon = value
+        End Set
+    End Property
+
+    Public Property KontaktEpost() As String
+        Get
+            Return _kontaktEpost
+        End Get
+        Set(ByVal value As String)
+            _kontaktEpost = value
         End Set
     End Property
 End Class
