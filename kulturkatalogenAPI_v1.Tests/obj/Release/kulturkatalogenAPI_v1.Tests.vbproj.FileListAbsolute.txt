@@ -43,3 +43,5 @@ D:\devprojekt\api\kulturkatalogenAPI_v1\kulturkatalogenAPI_v1.Tests\obj\Release\
 D:\devprojekt\api\kulturkatalogenAPI_v1\kulturkatalogenAPI_v1.Tests\bin\Release\KulturkatalogenMail.dll
 D:\devprojekt\api\kulturkatalogenAPI_v1\kulturkatalogenAPI_v1.Tests\bin\Release\KulturkatalogenArrangemang.pdb
 D:\devprojekt\api\kulturkatalogenAPI_v1\kulturkatalogenAPI_v1.Tests\bin\Release\KulturkatalogenArrangemang.xml
+D:\devprojekt\api\kulturkatalogenAPI_v1\kulturkatalogenAPI_v1.Tests\bin\Release\KulturkatalogenMail.pdb
+D:\devprojekt\api\kulturkatalogenAPI_v1\kulturkatalogenAPI_v1.Tests\bin\Release\KulturkatalogenMail.xml

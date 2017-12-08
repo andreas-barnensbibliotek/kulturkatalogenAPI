@@ -71,23 +71,11 @@ Public Class updateArrangemang
         _logobj.logger(arrobj.Arrid, arrobj.Logtypid, arrobj.Logbeskrivning, arrobj.Userid, arrobj.Logstatusid)
 
         If retobj.status.IndexOf("Fel") = -1 Then
-            sendmail(arrobj)
+            _mailobj.sendmail(arrobj.UpdValue, arrobj.Arrid, arrobj.Logbeskrivning)
         End If
 
         Return retobj
 
     End Function
 
-    Private Sub sendmail(arrobj As updateArrangemangInfo)
-
-        Dim arrangemangobj As New arrangemangInfo
-        Dim logbes As String = "AutoMail to: " & arrobj.Arrid & " status: "
-
-        arrangemangobj.Arrid = arrobj.Arrid
-
-        logbes &= _mailobj.SendMailHandler(arrobj.UpdValue, arrangemangobj, arrobj.Logbeskrivning)
-
-        _logobj.logger(arrobj.Arrid, Logtyp.Systemevent, logbes, arrobj.Userid, statusevent.handelse)
-
-    End Sub
 End Class

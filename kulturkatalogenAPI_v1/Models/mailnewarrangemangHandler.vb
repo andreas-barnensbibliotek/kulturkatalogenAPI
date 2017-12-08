@@ -4,49 +4,63 @@ Imports KulturkatalogenMail
 Imports kulturkatalogenUser
 
 Public Class mailnewarrangemangHandler
-    Public Function newarrangemangMail(arrmaildata As KulturkatalogenArrangemang.arrangemangInfo) As String
-        Dim userobj As New kk_aj_katalogenUsers
-        Dim userlist As New List(Of katalogenUserInfo)
-        Dim mailobj As New katalogenMailController
-        Dim mailtolist As String = ""
+    'Public Function newarrangemangMail(arrmaildata As KulturkatalogenArrangemang.arrangemangInfo) As String
+    '    Dim userobj As New kk_aj_katalogenUsers
+    '    Dim userlist As New List(Of katalogenUserInfo)
+    '    Dim mailobj As New katalogenMailController
+    '    Dim mailtolist As String = ""
 
-        If arrmaildata.debug = "9999" Then 'debug nummer
-            mailtolist = "theonealf@gmail.com"
-        Else
-            userlist = userobj.getUsersbykonstform(arrmaildata.Konstform)
+    '    If arrmaildata.debug = "9999" Then 'debug nummer
+    '        mailtolist = "theonealf@gmail.com"
+    '    Else
+    '        userlist = userobj.getUsersbykonstform(arrmaildata.Konstform)
 
-            Dim antal As Integer = userlist.Count
-            Dim i As Integer = 1
-            For Each x In userlist
-                mailtolist = x.userepost
-                If antal > i Then
-                    mailtolist &= "; "
-                End If
+    '        Dim antal As Integer = userlist.Count
+    '        Dim i As Integer = 1
+    '        For Each x In userlist
+    '            mailtolist = x.userepost
+    '            If antal > i Then
+    '                mailtolist &= "; "
+    '            End If
 
-                i += 1
-            Next
-        End If
+    '            i += 1
+    '        Next
+    '    End If
 
-        Return mailobj.arraangemangmail(convertinfoclasser(arrmaildata), mailtolist)
+    '    Return mailobj.arraangemangmail(convertinfoclasser(arrmaildata), mailtolist)
 
-    End Function
+    'End Function
 
-    Public Function SendMailHandler(mailtyp As String, arrdata As KulturkatalogenArrangemang.arrangemangInfo, motivering As String) As String
+    Public Sub sendmail(mailtyp As String, arrid As Integer, logtext As String)
+        Dim logobj As New LogHandlerModel
+        Dim logbes As String = "AutoMail to: " & arrid & " status: "
+        logbes &= SendMailHandler(mailtyp, arrid, logtext)
+
+        logobj.logger(arrid, 2, logbes, 1, 9) 'logobj.logger(arrid, Logtyp.Systemevent, logbeskrivning, hostuser, statusevent.handelse)
+
+    End Sub
+    Private Function SendMailHandler(mailtyp As String, arrid As Integer, motivering As String) As String
         Dim mailhandler As New katalogenMailController
         Dim arrangemang As New KulturkatalogenArrangemang.arrangemangInfo
-        arrangemang = getmailBasecontent(arrdata.Arrid)
+        arrangemang = getmailBasecontent(arrid)
         Dim mailobj As New mailInfo
+        Dim ret As String = ""
+        If String.IsNullOrEmpty(arrangemang.KontaktEpost) Then
+            ret = "Fel Ingen kontaktEpostadress finns registrerad"
+        Else
+            With mailobj
+                .Utovarid = arrangemang.Utovarid
+                .utovaremailtoadress = arrangemang.KontaktEpost
+                .Konstformid = arrangemang.Konstformid
+                .MailTemplateId = mailtyp
+                .MailArrdata = convertinfoclasser(arrangemang)
+                .Motivering = motivering
 
-        With mailobj
-            .Utovarid = arrangemang.Utovarid
-            .utovaremailtoadress = arrangemang.KontaktEpost
-            .Konstformid = arrangemang.Konstformid
-            .MailTemplateId = mailtyp
-            .MailArrdata = convertinfoclasser(arrangemang)
-            .Motivering = motivering
+            End With
+            ret = mailhandler.sendArrangemangsMail(mailobj)
+        End If
 
-        End With
-        Return mailhandler.sendArrangemangsMail(mailobj)
+        Return ret
 
     End Function
 

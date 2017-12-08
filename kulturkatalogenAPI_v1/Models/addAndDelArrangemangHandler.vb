@@ -5,10 +5,12 @@ Public Class addAndDelArrangemangHandler
     Private _logobj As New LogHandlerModel
     Private _Arrobj As New kk_aj_arr_MainController
     Private _converttoJson As New convertArrtoJsonMainAnnonsFormat
+    Private _mailobj As New mailnewarrangemangHandler
 
     Enum statusevent
         Ny = 1
         Borttagen = 10
+        handelse = 9 'event
         Andrad = 5
     End Enum
 
@@ -17,19 +19,21 @@ Public Class addAndDelArrangemangHandler
         Dim tmpobj As New arrangemangcontainerInfo
         Dim cmdtyp As New updatearrcommand
         Dim jsn As New jsonrootInfo
-        Dim mailstatus As String = ""
+
         'retobj.Ansokningstyp = "Add"
         tmpobj.Status = "Fel vid skapa nytt arrangemang"
 
         If Not String.IsNullOrEmpty(cmd) Then
             cmdtyp.CmdTyp = cmd
             tmpobj = _Arrobj.addArrangemang(cmdtyp, arrobj)
-            mailstatus = sendmail(arrobj)
-            tmpobj.Status &= " " & mailstatus
         End If
 
         'LOGGA ALLA EVENT
         _logobj.logger(tmpobj.Arrangemanglist(0).Arrid, 1, tmpobj.Status, 0, statusevent.Ny)
+
+        If tmpobj.Status.IndexOf("Fel") = -1 Then
+            _mailobj.sendmail(1, arrobj.Arrid, "Nytt arrangemang")
+        End If
 
         Return _converttoJson.convertToArrangemangInfoApi(tmpobj)
 
@@ -91,12 +95,6 @@ Public Class addAndDelArrangemangHandler
         _logobj.logger(arrobj.arrid, 1, tmpobj.Status, usrid, statusevent.Andrad)
 
         Return _converttoJson.convertToArrangemangInfoApi(tmpobj)
-    End Function
-    Private Function sendmail(arrData As arrangemangInfo) As String
-
-        Dim obj As New mailnewarrangemangHandler
-        Return obj.newarrangemangMail(arrData)
-
     End Function
 
 #Region "ADD"

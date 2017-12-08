@@ -12,32 +12,32 @@ Public Class testController
     ' GET api/<controller>/devkey/key
     Public Function GetValues() As List(Of utovarelistInfo)
 
-        Dim ret As New List(Of utovarelistInfo)
+        'Dim ret As New List(Of utovarelistInfo)
 
-        Dim testar As utovarelistInfo = New utovarelistInfo
-        testar.utovarid = "1"
-        testar.utovare = "testar att skicka mail"
-        ret.Add(testar)
-        Dim testar2 As utovarelistInfo = New utovarelistInfo
-        testar2.utovarid = "2"
-        testar2.utovare = "mail skickas till theonealf"
-        ret.Add(testar2)
+        'Dim testar As utovarelistInfo = New utovarelistInfo
+        'testar.utovarid = "1"
+        'testar.utovare = "testar att skicka mail"
+        'ret.Add(testar)
+        'Dim testar2 As utovarelistInfo = New utovarelistInfo
+        'testar2.utovarid = "2"
+        'testar2.utovare = "mail skickas till theonealf"
+        'ret.Add(testar2)
 
-        Dim arrData As New arrangemangInfo
-        arrData.Konstform = "1"
-        arrData.Rubrik = "testar att skicka mail"
-        arrData.Innehall = "massatext"
-        arrData.debug = "9999"
+        'Dim arrData As New arrangemangInfo
+        'arrData.Konstform = "1"
+        'arrData.Rubrik = "testar att skicka mail"
+        'arrData.Innehall = "massatext"
+        'arrData.debug = "9999"
 
-        Dim obj As New mailnewarrangemangHandler
+        'Dim obj As New mailnewarrangemangHandler
 
-        Dim testar3 As utovarelistInfo = New utovarelistInfo
-        testar3.utovarid = "3"
-        testar3.utovare = "Klara. Funkar det: " & obj.newarrangemangMail(arrData)
-        testar3.selected = "ja"
-        ret.Add(testar3)
+        'Dim testar3 As utovarelistInfo = New utovarelistInfo
+        'testar3.utovarid = "3"
+        'testar3.utovare = "Klara. Funkar det: " & obj.newarrangemangMail(arrData)
+        'testar3.selected = "ja"
+        'ret.Add(testar3)
 
-        Return ret
+        'Return ret
 
         'Return testar ' "{'Booklist':[{'Bookid':11674,'title':'Pojken och hunden','isbn':'978-91-28-10697-9','Forfattare':[{'bookid':11674,'creatorid':5118,'namn':'Siw Widerberg','CreatorRollID':1}],'Illustrator':null,'Published':'2010','forlag':null,'Categories':[{'bookid':11674,'CategoryID':3,'catnamn':null}],'ExtraCategorier':[],'Amnen':null,'Serie':null,'Serienr':null,'Subtitle':null,'Easyread':0,'TotVotes':0,'BookReview':null,'BokomslagURL':'http://www.barnensbibliotek.com/Portals/0/bokomslag/978-91-28-10697-9.jpg','MediaUrler':null,'status':0}],'Totalbookitems':48,'requestedpage':'4','requestedpagecount':12,'Morepageleft':'ja','Totalpages':4,'Status':'ok'}"
 
