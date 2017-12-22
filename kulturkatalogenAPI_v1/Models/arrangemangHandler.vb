@@ -11,6 +11,8 @@ Public Class arrangemangHandler
         Dim cmdtyp As New commandTypeInfo
 
         Select Case cmd
+            Case "granska"
+                cmdtyp.ArrID = arr
             Case "details"
                 cmdtyp.ArrID = arr
             Case Else

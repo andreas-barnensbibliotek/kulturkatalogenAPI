@@ -10,9 +10,9 @@ Public Class uploadmediaController
 
     '  api/<controller>/devkey/key
     'local
-    Private _saveurl As String = "D:\wwwroot\dnndev_v902.me\Portals\0\kulturkatalogenArrImages\"
+    'Private _saveurl As String = "D:\wwwroot\dnndev_v902.me\Portals\0\kulturkatalogenArrImages\"
     'server
-    'Private _saveurl As String = "D:\websites\kulturkatalogendnn\Portals\0\kulturkatalogenArrImages\"
+    Private _saveurl As String = "D:\websites\kulturkatalogendnn\Portals\0\kulturkatalogenArrImages\"
     Public Function PostValue(devkey As String) As HttpResponseMessage
         Dim returnobject As New jsonMainAnnonsFormat
         Dim infoobj As New EditArrangemangDetailInfo
@@ -47,7 +47,10 @@ Public Class uploadmediaController
                     infoobj.MediaSize = HttpContext.Current.Request("arrsize")
                     infoobj.MediaFoto = HttpContext.Current.Request("arrfoto")
                     infoobj.MediaAlt = HttpContext.Current.Request("arralt")
-
+                    infoobj.Kontaktfornamn = HttpContext.Current.Request("Kontaktfornamn")
+                    infoobj.KontaktEfternamn = HttpContext.Current.Request("KontaktEfternamn")
+                    infoobj.KontaktTelefon = HttpContext.Current.Request("KontaktTelefon")
+                    infoobj.KontaktEpost = HttpContext.Current.Request("KontaktEpost")
 
                     'Måste skicka med arrangemangid annars går den inte att spara.. måste kunna härleda vart bilden/filen hör
                     If Not String.IsNullOrEmpty(infoobj.arrid) Then

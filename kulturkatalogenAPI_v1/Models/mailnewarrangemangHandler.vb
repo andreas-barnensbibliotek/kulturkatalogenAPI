@@ -42,11 +42,19 @@ Public Class mailnewarrangemangHandler
     Private Function SendMailHandler(mailtyp As String, arrid As Integer, motivering As String) As String
         Dim mailhandler As New katalogenMailController
         Dim arrangemang As New KulturkatalogenArrangemang.arrangemangInfo
+        Dim kostformobj As New kk_aj_katalogenUsers
         arrangemang = getmailBasecontent(arrid)
+        Dim konstformuser As List(Of katalogenUserInfo) = kostformobj.getUsersbykonstform(arrangemang.Konstformid)
+
         Dim mailobj As New mailInfo
         Dim ret As String = ""
-        If String.IsNullOrEmpty(arrangemang.KontaktEpost) Then
-            ret = "Fel Ingen kontaktEpostadress finns registrerad"
+        Dim konsformusruserepost As String = ""
+        If konstformuser.Count > 0 Then
+            konsformusruserepost = konstformuser(0).userepost
+        End If
+
+        If String.IsNullOrEmpty(arrangemang.KontaktEpost) Or String.IsNullOrEmpty(konsformusruserepost) Then
+            ret = "Fel Ingen kontaktEpostadress eller KonstformansvarigEpost finns registrerad" & " konsulent: userid " & mailobj.KulturkatalogenUserid
         Else
             With mailobj
                 .Utovarid = arrangemang.Utovarid
@@ -55,9 +63,12 @@ Public Class mailnewarrangemangHandler
                 .MailTemplateId = mailtyp
                 .MailArrdata = convertinfoclasser(arrangemang)
                 .Motivering = motivering
+                .KulturkatalogenUserid = konstformuser(0).Userid
+                .KulturkatalogenAvsEpost = konstformuser(0).userepost
+                .KulturkatalogenAvsNamn = konstformuser(0).userfornamn & " " & konstformuser(0).userefternamn
 
             End With
-            ret = mailhandler.sendArrangemangsMail(mailobj)
+            ret = mailhandler.sendArrangemangsMail(mailobj) & " konsulent: " & mailobj.KulturkatalogenAvsEpost & "(" & mailobj.KulturkatalogenUserid & ")"
         End If
 
         Return ret
