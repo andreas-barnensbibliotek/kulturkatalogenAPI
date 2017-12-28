@@ -10,9 +10,9 @@ Public Class uploadmediaController
 
     '  api/<controller>/devkey/key
     'local
-    'Private _saveurl As String = "D:\wwwroot\dnndev_v902.me\Portals\0\kulturkatalogenArrImages\"
+    Private _saveurl As String = "D:\wwwroot\dnndev_v902.me\Portals\0\kulturkatalogenArrImages\"
     'server
-    Private _saveurl As String = "D:\websites\kulturkatalogendnn\Portals\0\kulturkatalogenArrImages\"
+    'Private _saveurl As String = "D:\websites\kulturkatalogendnn\Portals\0\kulturkatalogenArrImages\"
     Public Function PostValue(devkey As String) As HttpResponseMessage
         Dim returnobject As New jsonMainAnnonsFormat
         Dim infoobj As New EditArrangemangDetailInfo
