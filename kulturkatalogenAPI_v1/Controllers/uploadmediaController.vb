@@ -9,10 +9,10 @@ Public Class uploadmediaController
     Inherits ApiController
 
     '  api/<controller>/devkey/key
-    'local
-    Private _saveurl As String = "D:\wwwroot\dnndev_v902.me\Portals\0\kulturkatalogenArrImages\"
+    'local byt denna och url i: utovareController.vb
+    'Private _saveurl As String = "D:\wwwroot\dnndev_v902.me\Portals\0\kulturkatalogenArrImages\"
     'server
-    'Private _saveurl As String = "D:\websites\kulturkatalogendnn\Portals\0\kulturkatalogenArrImages\"
+    Private _saveurl As String = "D:\websites\kulturkatalogendnn\Portals\0\kulturkatalogenArrImages\"
     Public Function PostValue(devkey As String) As HttpResponseMessage
         Dim returnobject As New jsonMainAnnonsFormat
         Dim infoobj As New EditArrangemangDetailInfo
@@ -76,7 +76,7 @@ Public Class uploadmediaController
                                 ' Save the uploaded file to "UploadedFiles" folder
                                 httpPostedFile.SaveAs(uploadedfileSrc)
                                 'returnobject = tmparrobj.EditArrangemang(cmd, Val, arrobj)
-
+                            
                             End If
                         End If
                         returnobject = tmparrobj.EditArrangemang(cmd, userid, infoobj)
@@ -111,46 +111,52 @@ Public Class uploadmediaController
 
     Private Function tempuploadimage(val As String, arrid As String) As String
         Dim tempurl As String = ""
+        Dim weburl As String = "/Portals/0/kulturkatalogenArrImages/"
 
         If HttpContext.Current.Request.Files.AllKeys.Any() Then
             ' skickas med i postrequesten.. javascript: var data = new FormData();  Data.append("arrid", $('#arrid').val());
-            Dim saveurl As String = _saveurl
-            'Dim saveurl As String = "D:\websites\kulturkatalogendnn\Portals\0\kulturkatalogenArrImages\"
-            Dim weburl As String = "/Portals/0/kulturkatalogenArrImages/"
-            ' Get the uploaded image from the Files collection
-
-            If val = "tmp" Then
-                saveurl &= "tmp\"
-                weburl &= "tmp/"
-            End If
 
             Dim httpPostedFile = HttpContext.Current.Request.Files("UploadedImage")
 
             If httpPostedFile IsNot Nothing Then
                 Dim uploadedfileSrc As String = ""
-                ' Validate the uploaded image(optional)
-                'Dim uploadedfileSrc As String = saveurl & Path.GetFileName(httpPostedFile.FileName)
                 If val = "tmp" Then
-                    uploadedfileSrc = saveurl & "_" & httpPostedFile.FileName
+                    uploadedfileSrc = _saveurl & httpPostedFile.FileName
                 Else
-                    uploadedfileSrc = saveurl & arrid & "_" & httpPostedFile.FileName
+                    uploadedfileSrc = _saveurl & arrid & "_" & httpPostedFile.FileName
                 End If
 
+                ' Save the uploaded file to "UploadedFiles" folder
+                httpPostedFile.SaveAs(uploadedfileSrc)
 
-                tempurl = weburl & "_" & httpPostedFile.FileName
-                    ' Get the complete file path
-                    'Dim fileSavePath = Path.Combine(HttpContext.Current.Server.MapPath("~/UploadedFiles"), httpPostedFile.FileName)
-                    'Dim fileSavePath = Path.Combine(saveurl, uploadedfileSrc)
-
-                    ' Save the uploaded file to "UploadedFiles" folder
-                    httpPostedFile.SaveAs(uploadedfileSrc)
-                    'returnobject = tmparrobj.EditArrangemang(cmd, Val, arrobj)
-
-                End If
             End If
+        Else
+            Dim returnobject As New jsonMainAnnonsFormat
+            Dim arrobj As New arrangemangHandler
+            returnobject = arrobj.getArrangemang("details", arrid, 0, "")
+            Dim tmpfilename As String = returnobject.ansokningarlista.ansokningar(0).ansokningMediaImage.MediaUrl
+            Dim oldfile As String = _saveurl + tmpfilename
+            Dim newfile As String = _saveurl + arrid + "_" + tmpfilename
+            If CopyFile(oldfile, newfile) Then
+                'det funkar
+            End If
+        End If
 
         Return tempurl
 
     End Function
+
+    Private Function CopyFile(oldfilename As String, NewFileName As String) As Boolean
+        Try
+            If Not File.Exists(NewFileName) Then
+                File.Copy(oldfilename, NewFileName)
+            End If
+            Return True
+        Catch ex As Exception
+            Return False
+        End Try
+
+    End Function
+
 
 End Class

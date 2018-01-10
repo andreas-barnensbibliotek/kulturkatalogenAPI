@@ -73,11 +73,11 @@ Public Class utovareController
                 If httpPostedFile IsNot Nothing Then
                     ' Validate the uploaded image(optional)
                     ' Get the complete file path
-                    Dim fileSavePath = Path.Combine("D:\wwwroot\dnndev_v902.me\Portals\0\kulturkatalogUtovareImages\", httpPostedFile.FileName)
-                    Dim webserverImgUrl = "/Portals/0/kulturkatalogUtovareImages/" & httpPostedFile.FileName
-
-                    'Dim fileSavePath = Path.Combine("D:\websites\kulturkatalogendnn\Portals\0\kulturkatalogUtovareImages\", httpPostedFile.FileName)
+                    'Dim fileSavePath = Path.Combine("D:\wwwroot\dnndev_v902.me\Portals\0\kulturkatalogUtovareImages\", httpPostedFile.FileName)
                     'Dim webserverImgUrl = "/Portals/0/kulturkatalogUtovareImages/" & httpPostedFile.FileName
+
+                    Dim fileSavePath = Path.Combine("D:\websites\kulturkatalogendnn\Portals\0\kulturkatalogUtovareImages\", httpPostedFile.FileName)
+                    Dim webserverImgUrl = "/Portals/0/kulturkatalogUtovareImages/" & httpPostedFile.FileName
 
                     utovareobj.Bild = webserverImgUrl
                     ' Save the uploaded file to "UploadedFiles" folder
@@ -97,30 +97,7 @@ Public Class utovareController
 
         Return returnobject
     End Function
-    'Public Function PostValue(cmd As String, usr As String, devkey As String, <FromBody> utovareobj As utovareDetailInfo) As jsonUtovareReturnFormatInfo
-    '    Dim returnobject As New jsonUtovareReturnFormatInfo
 
-    '    If HttpContext.Current.Request.Files.AllKeys.Any() Then
-    '        ' Get the uploaded image from the Files collection
-    '        Dim httpPostedFile = HttpContext.Current.Request.Files("UploadedImage")
-
-    '        If httpPostedFile IsNot Nothing Then
-    '            ' Validate the uploaded image(optional)
-
-    '            ' Get the complete file path
-    '            Dim fileSavePath = "test" 'Path.Combine(HttpContext.Current.Server.MapPath("~/UploadedFiles"), httpPostedFile.FileName)
-
-    '            ' Save the uploaded file to "UploadedFiles" folder
-    '            httpPostedFile.SaveAs(fileSavePath)
-    '        End If
-    '    End If
-    '    If devkeytester(devkey) Then
-    '        returnobject.kk_aj_admin = _utovarobj.crudutovare(cmd, usr, utovareobj)
-
-    '    End If
-
-    '    Return returnobject
-    'End Function
     Public Function DeleteValue(arrid As String, userid As String, devkey As String) As jsonrootInfo
         Dim ret As New jsonrootInfo
 
