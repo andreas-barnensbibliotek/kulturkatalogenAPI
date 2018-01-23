@@ -73,11 +73,11 @@ Public Class utovareController
                 If httpPostedFile IsNot Nothing Then
                     ' Validate the uploaded image(optional)
                     ' Get the complete file path
-                    'Dim fileSavePath = Path.Combine("D:\wwwroot\dnndev_v902.me\Portals\0\kulturkatalogUtovareImages\", httpPostedFile.FileName)
-                    'Dim webserverImgUrl = "/Portals/0/kulturkatalogUtovareImages/" & httpPostedFile.FileName
-
-                    Dim fileSavePath = Path.Combine("D:\websites\kulturkatalogendnn\Portals\0\kulturkatalogUtovareImages\", httpPostedFile.FileName)
+                    Dim fileSavePath = Path.Combine("D:\wwwroot\dnndev_v902.me\Portals\0\kulturkatalogUtovareImages\", httpPostedFile.FileName)
                     Dim webserverImgUrl = "/Portals/0/kulturkatalogUtovareImages/" & httpPostedFile.FileName
+
+                    'Dim fileSavePath = Path.Combine("D:\websites\kulturkatalogendnn\Portals\0\kulturkatalogUtovareImages\", httpPostedFile.FileName)
+                    'Dim webserverImgUrl = "/Portals/0/kulturkatalogUtovareImages/" & httpPostedFile.FileName
 
                     utovareobj.Bild = webserverImgUrl
                     ' Save the uploaded file to "UploadedFiles" folder
