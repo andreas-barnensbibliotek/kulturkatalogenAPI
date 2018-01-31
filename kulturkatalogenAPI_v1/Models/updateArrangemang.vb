@@ -52,27 +52,34 @@ Public Class updateArrangemang
         tmpobj.Status = "Fel vid anrop av uppdateringen"
 
         If Not String.IsNullOrEmpty(arrobj.Logbeskrivning) Then
-            If arrobj.Userid > 0 Then
-                If arrobj.Arrid > 0 Then
-                    cmdtyp.CmdTyp = arrobj.CmdTyp
-                    cmdtyp.Arrid = arrobj.Arrid
-                    cmdtyp.arrUserid = arrobj.Userid
-                    cmdtyp.UpdValue = arrobj.UpdValue
+            If Not arrobj.Logstatusid = 2 Then
+
+                If arrobj.Userid > 0 Then
+                    If arrobj.Arrid > 0 Then
+                        cmdtyp.CmdTyp = arrobj.CmdTyp
+                        cmdtyp.Arrid = arrobj.Arrid
+                        cmdtyp.arrUserid = arrobj.Userid
+                        cmdtyp.UpdValue = arrobj.UpdValue
+                    End If
+
+
+                    Dim updatecmdobj As New kk_aj_arr_MainController
+                    tmpobj = updatecmdobj.updateArrPropeties(cmdtyp)
+
                 End If
 
+                retobj.status = tmpobj.Status
 
-                Dim updatecmdobj As New kk_aj_arr_MainController
-                tmpobj = updatecmdobj.updateArrPropeties(cmdtyp)
+                If retobj.status.IndexOf("Fel") = -1 Then
+                    _mailobj.sendmail(arrobj.UpdValue, arrobj.Arrid, arrobj.Logbeskrivning)
+                End If
+            Else 'Om logtypid = 2 då är det en kommentar och skall inte ändra något bara logga
+                retobj.status = "En kommentar/granska är tillagd till arrangemangsloggen"
 
             End If
         End If
 
-        retobj.status = tmpobj.Status
         _logobj.logger(arrobj.Arrid, arrobj.Logtypid, arrobj.Logbeskrivning, arrobj.Userid, arrobj.Logstatusid)
-
-        If retobj.status.IndexOf("Fel") = -1 Then
-            _mailobj.sendmail(arrobj.UpdValue, arrobj.Arrid, arrobj.Logbeskrivning)
-        End If
 
         Return retobj
 

@@ -55,7 +55,7 @@ Public Class updatearrangemangController
 
         Dim arrdataoobj As New updateArrangemangInfo
         arrdataoobj.Userid = CInt(Logobj.Userid) '1
-        arrdataoobj.Logtypid = 1 'arranganang
+        arrdataoobj.Logtypid = 1 'arrangemangevent
         arrdataoobj.Arrid = CInt(Logobj.Arrid) '21
         arrdataoobj.Logstatusid = CInt(Logobj.Logstatusid) '3 godkänd
         arrdataoobj.Logbeskrivning = Logobj.Logbeskrivning ' nu godkänd
