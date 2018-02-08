@@ -49,9 +49,23 @@ Public Class mailnewarrangemangHandler
         Dim mailobj As New mailInfo
         Dim ret As String = ""
         Dim konsformusruserepost As String = ""
-        If konstformuser.Count > 0 Then
-            konsformusruserepost = konstformuser(0).userepost
-        End If
+        'If konstformuser.Count > 0 Then
+        '    If konstformuser.Count > 1 Then
+
+        For Each epostadr In konstformuser
+            If epostadr Is konstformuser.Last Then
+                konsformusruserepost &= epostadr.userepost
+            Else
+                konsformusruserepost &= epostadr.userepost & ","
+            End If
+
+        Next
+        'Else
+        '    konsformusruserepost = konstformuser(0).userepost
+        'End If
+
+        ' konsformusruserepost = konstformuser(0).userepost
+        'End If
 
         If String.IsNullOrEmpty(arrangemang.KontaktEpost) Or String.IsNullOrEmpty(konsformusruserepost) Then
             ret = "Fel Ingen kontaktEpostadress eller KonstformansvarigEpost finns registrerad" & " konsulent: userid " & mailobj.KulturkatalogenUserid
@@ -64,7 +78,7 @@ Public Class mailnewarrangemangHandler
                 .MailArrdata = convertinfoclasser(arrangemang)
                 .Motivering = motivering
                 .KulturkatalogenUserid = konstformuser(0).Userid
-                .KulturkatalogenAvsEpost = konstformuser(0).userepost
+                .KulturkatalogenAvsEpost = konsformusruserepost 'konstformuser(0).userepost
                 .KulturkatalogenAvsNamn = konstformuser(0).userfornamn & " " & konstformuser(0).userefternamn
 
             End With
