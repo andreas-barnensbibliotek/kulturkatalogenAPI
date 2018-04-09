@@ -22,11 +22,15 @@ Public Class addAndDelArrangemangHandler
 
         'retobj.Ansokningstyp = "Add"
         tmpobj.Status = "Fel vid skapa nytt arrangemang"
+        Try
+            If Not String.IsNullOrEmpty(cmd) Then
+                cmdtyp.CmdTyp = cmd
+                tmpobj = _Arrobj.addArrangemang(cmdtyp, arrobj)
+            End If
+        Catch ex As Exception
+            tmpobj.Status = "Fel vid skapa nytt arrangemang: " & ex.Message
+        End Try
 
-        If Not String.IsNullOrEmpty(cmd) Then
-            cmdtyp.CmdTyp = cmd
-            tmpobj = _Arrobj.addArrangemang(cmdtyp, arrobj)
-        End If
 
         'LOGGA ALLA EVENT
         _logobj.logger(tmpobj.Arrangemanglist(0).Arrid, 1, tmpobj.Status, 0, statusevent.Ny)
