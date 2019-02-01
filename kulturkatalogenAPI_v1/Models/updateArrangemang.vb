@@ -9,6 +9,7 @@ Public Class updateArrangemang
         Borttagen = 10
         handelse = 9 'event
         Andrad = 5
+        arkiverad = 8
     End Enum
     Enum Logtyp
         Arrangemangevent = 1
@@ -37,7 +38,17 @@ Public Class updateArrangemang
         End If
 
         retobj.status = tmpobj.Status
-        _logobj.logger(arrid, Logtyp.Arrangemangevent, tmpobj.Status, usrid, statusevent.Andrad)
+        Select Case val
+            Case 4
+                If tmpobj.Status.IndexOf("Fel") = -1 Then
+                    _logobj.logger(arrid, Logtyp.Arrangemangevent, "ARKIVERAD " & tmpobj.Status, usrid, statusevent.arkiverad)
+                Else
+                    _logobj.logger(arrid, Logtyp.Arrangemangevent, "Fel vid arkivering!", usrid, statusevent.handelse)
+                End If
+            Case Else
+                _logobj.logger(arrid, Logtyp.Arrangemangevent, tmpobj.Status, usrid, statusevent.Andrad)
+
+        End Select
 
         Return retobj
 
@@ -62,7 +73,6 @@ Public Class updateArrangemang
                         cmdtyp.UpdValue = arrobj.UpdValue
                     End If
 
-
                     Dim updatecmdobj As New kk_aj_arr_MainController
                     tmpobj = updatecmdobj.updateArrPropeties(cmdtyp)
 
@@ -71,12 +81,19 @@ Public Class updateArrangemang
                 retobj.status = tmpobj.Status
 
                 If retobj.status.IndexOf("Fel") = -1 Then
-                    _mailobj.sendmail(arrobj.UpdValue, arrobj.Arrid, arrobj.Logbeskrivning)
+
+                    If arrobj.Logstatusid = 3 Or arrobj.Logstatusid = 4 Then ' 3 godkänd eller 4 nekad 
+                        _mailobj.sendmail(arrobj.UpdValue, arrobj.Arrid, arrobj.Logbeskrivning)
+                    Else
+                        retobj.status = "Arrangemanget är tillagt som under bearbetning i arrangemangsloggen"
+                    End If
                 End If
+
             Else 'Om logtypid = 2 då är det en kommentar och skall inte ändra något bara logga
                 retobj.status = "En kommentar/granska är tillagd till arrangemangsloggen"
 
             End If
+
         End If
 
         _logobj.logger(arrobj.Arrid, arrobj.Logtypid, arrobj.Logbeskrivning, arrobj.Userid, arrobj.Logstatusid)

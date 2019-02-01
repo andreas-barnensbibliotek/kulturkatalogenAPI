@@ -74,11 +74,11 @@ Public Class utovareController
                     ' Validate the uploaded image(optional)
                     ' Get the complete file path 
                     ' den andra urlen som skall ändras är här: uploadmediaController.vb
-                    Dim fileSavePath = Path.Combine("D:\wwwroot\dnndev_v902.me\Portals\0\kulturkatalogUtovareImages\", httpPostedFile.FileName)
-                    Dim webserverImgUrl = "/Portals/0/kulturkatalogUtovareImages/" & httpPostedFile.FileName
-
-                    'Dim fileSavePath = Path.Combine("D:\websites\kulturkatalogendnn\Portals\0\kulturkatalogUtovareImages\", httpPostedFile.FileName)
+                    'Dim fileSavePath = Path.Combine("D:\wwwroot\dnndev_v902.me\Portals\0\kulturkatalogUtovareImages\", httpPostedFile.FileName)
                     'Dim webserverImgUrl = "/Portals/0/kulturkatalogUtovareImages/" & httpPostedFile.FileName
+
+                    Dim fileSavePath = Path.Combine("D:\websites\kulturkatalogenvast\kulturkatalogendnn\Portals\0\kulturkatalogenArrImages\", httpPostedFile.FileName)
+                    Dim webserverImgUrl = "/Portals/0/kulturkatalogUtovareImages/" & httpPostedFile.FileName
 
                     utovareobj.Bild = webserverImgUrl
                     ' Save the uploaded file to "UploadedFiles" folder

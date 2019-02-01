@@ -18,6 +18,8 @@ Imports KulturkatalogenArrangemang
 'localhost:60485/Api_v2/arrangemang/details/uid/3/typ/3/devkey/alf?type=json&callback=testar
 'hämta latest arrangemang
 ' localhost:60485/Api_v2/arrangemang/bylatest/uid/2/typ/0/val/top10/devkey/alf?type=json&callback=testar
+'Vid sökning via utövarid: uid=Userid6 , val= utövarid
+'localhost:60485/Api_v2/arrangemang/byutovare/uid/1/typ/1/val/211/devkey/alf?type=json&callback=testar
 '------------------------------------------------------------------------------------------------------
 <EnableCors("*", "*", "*")>
 Public Class ArrangemangController

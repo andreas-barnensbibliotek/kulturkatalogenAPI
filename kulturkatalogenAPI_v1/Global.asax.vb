@@ -22,10 +22,9 @@ Public Class WebApiApplication
         GlobalConfiguration.Configuration.Formatters.JsonFormatter.MediaTypeMappings.Add(
            New System.Net.Http.Formatting.QueryStringMapping("type", "json", New System.Net.Http.Headers.MediaTypeHeaderValue("application/json")))
 
-
         'Använd denna för att få XML response men måste då skicka med ?type=xml i urlen-------------------------------------------------
-        'GlobalConfiguration.Configuration.Formatters.XmlFormatter.MediaTypeMappings.Add(
-        '    New System.Net.Http.Formatting.QueryStringMapping("type", "xml", New System.Net.Http.Headers.MediaTypeHeaderValue("application/xml")))
+        GlobalConfiguration.Configuration.Formatters.XmlFormatter.MediaTypeMappings.Add(
+            New System.Net.Http.Formatting.QueryStringMapping("type", "xml", New System.Net.Http.Headers.MediaTypeHeaderValue("application/xml")))
 
         RouteTable.Routes.MapHttpRoute("Api_v2.0",
                                       "Api_v2/{controller}_v2/",
